@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox_menu xmlns="http://openbox.org/3.4/menu">
+  <!-- why isn't icon for <menu> showing? -->
+  <menu id="apps-office-menu"
+	label="LibreOffice"
+	icon="/usr/share/icons/hicolor/scalable/apps/libreoffice-main.svg">
+    <item label="LibreOffice Base"
+	  icon="/usr/share/icons/hicolor/scalable/apps/libreoffice-main.svg">
+      <action name="Execute">
+	<command>libreoffice --base</command>
+      </action>
+    </item>
+    <item label="LibreOffice Calc"
+	  icon="/usr/share/icons/hicolor/scalable/apps/libreoffice-calc.svg">
+      <action name="Execute">
+	<command>libreoffice --calc</command>
+      </action>
+    </item>
+    <item label="LibreOffice Draw"
+	  icon="/usr/share/icons/hicolor/scalable/apps/libreoffice-draw.svg">
+      <action name="Execute">
+	<command>libreoffice --draw</command>
+      </action>
+    </item>
+    <item label="LibreOffice Impress"
+	   icon="/usr/share/icons/hicolor/scalable/apps/libreoffice-impress.svg">
+      <action name="Execute">
+	<command>libreoffice --impress</command>
+      </action>
+    </item>
+    <item label="LibreOffice Math"
+	  icon="/usr/share/icons/hicolor/scalable/apps/libreoffice-math.svg">
+      <action name="Execute">
+	<command>libreoffice --math</command>
+      </action>
+    </item>
+    <item label="LibreOffice Writer"
+	  icon="/usr/share/icons/hicolor/scalable/apps/libreoffice-writer.svg">
+      <action name="Execute">
+	<command>libreoffice --writer</command>
+      </action>
+    </item>
+  </menu>
+
+
+  <menu id="apps-graphics-menu" label="Graphics"
+	icon="/usr/share/icons/Qogir-ubuntu-dark/24/actions/graphics.svg">
+    <item label="Gimp"
+	  icon="/usr/share/icons/hicolor/48x48/apps/gimp.png">
+    <action name="Execute">
+      <command>gimp</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Blender"
+	icon="/usr/share/icons/hicolor/scalable/apps/blender.svg">
+    <action name="Execute">
+      <command>blender</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Inkscape"
+	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/inkscape.svg">
+    <action name="Execute">
+      <command>inkscape</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="system-menu" label="System">
+  <item label="Obconf"
+	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/obconf.svg">
+    <action name="Execute">
+      <command>obconf</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Appearance"
+	icon="/usr/share/icons/Qogir-ubuntu-dark/24/actions/graphics.svg">
+    <action name="Execute">
+      <command>lxappearance</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Picom Configuration"
+	icon="/usr/share/icons/Qogir/scalable/devices/monitor.svg">
+    <action name="Execute">
+      <command>emacsw ~/.config/picom/picom.conf</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Dunst Configuration"
+	icon="/usr/share/icons/Adwaita/scalable/status/notifications-disabled-symbolic.svg">
+    <action name="Execute">
+      <command>emacsw ~/.config/dunst/dunstrc</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Openbox menu.xml"
+	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/openbox.svg">
+    <action name="Execute">
+      <command>emacsw ~/.config/openbox/menu.xml</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Openbox rc.xml"
+	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/openbox.svg">
+    <action name="Execute">
+      <command>emacsw ~/.config/openbox/rc.xml</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Openbox autostart"
+	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/openbox.svg">
+    <action name="Execute">
+      <command>emacsw ~/.config/openbox/autostart</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+
+</menu>
+
+<menu id="root-menu" label="Openbox 3">
+  <separator label="Applications" />
+  <item label="Emacs"
+	icon="/usr/share/icons/hicolor/scalable/apps/emacs.svg">
+    <action name="Execute">
+      <command>emacsw</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Firefox"
+	icon="/usr/share/icons/hicolor/scalable/apps/firefox.svg">
+    <action name="Execute">
+      <command>firefox</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Firefox Private Window"
+	icon="/usr/share/icons/hicolor/scalable/apps/firefox.svg">
+    <action name="Execute">
+      <command>firefox --private-window</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="File Manager"
+	icon="/usr/share/icons/hicolor/48x48/apps/spacefm.png">
+    <action name="Execute">
+      <command>spacefm</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <item label="Terminal Emulator"
+	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/terminal.svg">
+    <action name="Execute">
+      <command>st</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+  <menu id="apps-office-menu"/>
+  <menu id="apps-graphics-menu"/>
+  
+  <separator label="System" />
+  <menu id="system-menu"/>
+  <separator />
+  <!-- TODO: Add that logout settings application here -->
+  <item label="Log Out">
+    <action name="Exit">
+      <prompt>yes</prompt>
+    </action>
+  </item>
+</menu>
+
+</openbox_menu>
