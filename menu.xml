@@ -94,6 +94,15 @@
       </startupnotify>
     </action>
   </item>
+    <item label="Xsettings"
+	icon="/usr/share/icons/Qogir-ubuntu-dark/24/actions/graphics.svg">
+    <action name="Execute">
+      <command>emacsw ~/.xsettingsd</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
   <item label="Picom Configuration"
 	icon="/usr/share/icons/Qogir/scalable/devices/monitor.svg">
     <action name="Execute">

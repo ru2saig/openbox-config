@@ -7,7 +7,7 @@ picom -b
 # notification daemon
 /usr/bin/dunst &
 
-
+xsettingsd &
 xfce4-panel -d --sm-client-disable &
 
 # gnome polkit
