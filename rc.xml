@@ -8,7 +8,7 @@
 	 3. How to add keyboard + mousebind to scroll other window, without having to use mouose
 	 4. Tiling menu. with a script probably. maybe using some EWHM compilaint (or whatever it's called) thing 
 
-      -->
+  -->
   <resistance>
     <strength>10</strength>
     <screen_edge_strength>20</screen_edge_strength>
@@ -49,7 +49,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Bear2</name>
+    <name>Arc-Dark</name>
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
@@ -288,45 +288,14 @@
         <command> amixer set Master toggle </command>
       </action>
     </keybind>
-    <!-- See https://wiki.archlinux.org/title/backlight#ACPI for more details -->
-    <!--
-	TODO: How to make these logarithmitic?
-	TODO: Anyway to add these as is here? Something is up with the escape characters, I think
-	TODO: Add a patch that allows ("&gt;") to be turned to a > in the shell command? 
-
-        These source of the scripts are below; make modifications as per system config
-	# dec_brightness.sh
-	 fpath=/sys/class/backlight/intel_backlight/brightness;
-	 cbright=`cat $fpath`
-	 low_bright=100;
-	 step=50;
-	 let nbright=$((cbright - 50));
-	 if ((nbright >= low_bright)); then
-	 echo $nbright > $fpath
-	 else
-	 echo $low_bright > $fpath
-	 fi
-	 
-	 # inc_brightness.sh
-	 fpath=/sys/class/backlight/intel_backlight/brightness;
-	 cbright=`cat $fpath`;
-	 max_bright=`cat /sys/class/backlight/intel_backlight/max_brightness`;
-	 step=50;
-	 let nbright=$((cbright + 50));
-	 if ((nbright <= max_bright)); then
-	 echo $nbright > $fpath
-	 else
-	 echo $max_bright > $fpath
-	 fi
-    -->
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
-        <command> ~/Scripts/inc_brightness.sh </command>
+        <command> xbacklight +10 </command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
-        <command> ~/Scripts/dec_brightness.sh </command>
+        <command> xbacklight -10 </command>
       </action>
     </keybind>
     <!-- keybindings for window snapping -->
