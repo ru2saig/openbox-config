@@ -797,6 +797,21 @@
 	 All new applications will have no decorations and appear in the center. 
 	 keeps things neat
     -->
+    <application name="emacs">
+      <maximized>yes</maximized>
+      <fullscreen>yes</fullscreen>
+    </application>
+
+    <application name="st-256color">
+      <maximized>yes</maximized>
+      <fullscreen>yes</fullscreen>
+    </application>
+
+    <application name="spacefm">
+      <maximized>yes</maximized>
+      <fullscreen>yes</fullscreen>
+    </application>
+
     <application class="*">
       <decor>no</decor>
       <position force="no">
@@ -805,5 +820,10 @@
         <monitor>1</monitor>
       </position>
     </application>
+
+    <application name="firefox">
+      <maximized>yes</maximized>
+    </application>
+    
   </applications>
 </openbox_config>
