@@ -319,7 +319,7 @@
       </action>
     </keybind>
     <keybind key="W-S-h">
-      <action name="Unmaximize"/>
+      <action name="Unmaximize"/>	      
       <action name="MoveResizeTo">
         <x>+-0</x>
         <y>+-0</y>
@@ -798,18 +798,16 @@
 	 keeps things neat
     -->
     <application name="emacs">
-      <maximized>yes</maximized>
       <fullscreen>yes</fullscreen>
+      <maximized>yes</maximized>
     </application>
 
     <application name="st-256color">
       <maximized>yes</maximized>
-      <fullscreen>yes</fullscreen>
     </application>
 
     <application name="spacefm">
       <maximized>yes</maximized>
-      <fullscreen>yes</fullscreen>
     </application>
 
     <application class="*">
