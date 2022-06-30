@@ -49,7 +49,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Arc-Dark</name>
+    <name>ObAdwaita-Dark</name>
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
@@ -290,12 +290,12 @@
     </keybind>
     <keybind key="XF86MonBrightnessUp">
       <action name="Execute">
-        <command> xbacklight +10 </command>
+        <command> xbacklight +5 </command>
       </action>
     </keybind>
     <keybind key="XF86MonBrightnessDown">
       <action name="Execute">
-        <command> xbacklight -10 </command>
+        <command> xbacklight -5 </command>
       </action>
     </keybind>
     <!-- keybindings for window snapping -->
@@ -319,7 +319,7 @@
       </action>
     </keybind>
     <keybind key="W-S-h">
-      <action name="Unmaximize"/>	      
+      <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>+-0</x>
         <y>+-0</y>
@@ -798,18 +798,16 @@
 	 keeps things neat
     -->
     <application name="emacs">
+      <focus>yes</focus>
       <fullscreen>yes</fullscreen>
       <maximized>yes</maximized>
     </application>
-
     <application name="st-256color">
       <maximized>yes</maximized>
     </application>
-
     <application name="spacefm">
       <maximized>yes</maximized>
     </application>
-
     <application class="*">
       <decor>no</decor>
       <position force="no">
@@ -818,10 +816,8 @@
         <monitor>1</monitor>
       </position>
     </application>
-
     <application name="firefox">
       <maximized>yes</maximized>
     </application>
-    
   </applications>
 </openbox_config>

@@ -172,7 +172,7 @@
     </action>
   </item>
   <item label="Firefox Private Window"
-	icon="/usr/share/icons/hicolor/scalable/apps/firefox.svg">
+	icon="/home/ruusaig/Pictures/logo-firefox-focus.png"> 	<!-- Get the icon from: https://www.mozilla.org/media/img/structured-data/logo-firefox-focus.f5f0b924422f. --> 
     <action name="Execute">
       <command>firefox --private-window</command>
       <startupnotify>
