@@ -9,6 +9,8 @@ picom -b
 
 xsettingsd &
 xfce4-panel -d --sm-client-disable &
+xfce4-power-manager &
+thunar --daemon
 
 # gnome polkit
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
