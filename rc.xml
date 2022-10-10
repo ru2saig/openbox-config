@@ -439,6 +439,15 @@
         <command>dmenu_run</command>
       </action>
     </keybind>
+     <keybind key="W-l">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>slock</name>
+        </startupnotify>
+        <command>/home/ruusaig/Scripts/sleeplock.sh</command>
+      </action>
+    </keybind>
     <!-- TODO: what to do about dis? -->
     <keybind key="W-S-q">
       <action name="Execute">
@@ -822,6 +831,13 @@
     </application>
     <application name="firefox">
       <maximized>yes</maximized>
+    </application>
+    <application name="gsimplecal">
+      <position force="yes">
+        <x>center</x>
+        <y>-0</y>
+        <monitor>1</monitor>
+      </position>
     </application>
   </applications>
 </openbox_config>
