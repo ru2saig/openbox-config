@@ -74,7 +74,7 @@
       <name>FreeSans</name>
       <size>11</size>
       <!-- font size in points -->
-      <weight>Normal</weight>
+      <weight>Bold</weight>
       <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
       <!-- 'italic' or 'normal' -->
@@ -439,7 +439,7 @@
         <command>dmenu_run</command>
       </action>
     </keybind>
-     <keybind key="W-l">
+    <keybind key="W-l">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -834,7 +834,7 @@
     </application>
     <application name="gsimplecal">
       <position force="yes">
-        <x>center</x>
+        <x>-50</x>
         <y>-0</y>
         <monitor>1</monitor>
       </position>
