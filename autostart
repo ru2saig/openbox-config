@@ -2,18 +2,15 @@
 ~/.fehbg &
 
 # launch picom
-picom -b
+#picom -b
 
 # notification daemon
-/usr/bin/dunst &
+#/usr/bin/dunst &
+#xsettingsd &
 
-xsettingsd &
-xfce4-panel -d --sm-client-disable &
-xfce4-power-manager &
-thunar --daemon
 
 # gnome polkit
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # turn off the annoying beep sound
 xset b off &
