@@ -156,7 +156,7 @@
   <item label="Emacs"
 	icon="/usr/share/icons/hicolor/scalable/apps/emacs.svg">
     <action name="Execute">
-      <command>emacsw</command>
+      <command>emacsw</command> <!-- emacsclient -c $@ 2>/dev/null & --> 
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
