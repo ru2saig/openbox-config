@@ -49,9 +49,9 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>ObAdwaita-Dark</name>
+    <name>Velnias</name>
     <keepBorder>yes</keepBorder>
-    <animateIconify>yes</animateIconify>
+    <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
       <name>FreeSans Semi-Bold</name>
       <size>8</size>
@@ -434,9 +434,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>dmenu</name>
+          <name>rofi</name>
         </startupnotify>
-        <command>dmenu_run</command>
+        <command>rofi -show drun</command>
       </action>
     </keybind>
     <keybind key="W-l">
@@ -812,17 +812,18 @@
     </application>
     <application name="emacs">
       <focus>yes</focus>
+      <decor>no</decor>
       <fullscreen>yes</fullscreen>
       <maximized>yes</maximized>
     </application>
     <application name="st-256color">
+      <decor>no</decor>
       <maximized>yes</maximized>
     </application>
     <application name="spacefm">
       <maximized>yes</maximized>
     </application>
     <application class="*">
-      <decor>no</decor>
       <position force="no">
         <x>center</x>
         <y>center</y>
@@ -830,6 +831,7 @@
       </position>
     </application>
     <application name="firefox">
+      <decor>no</decor>
       <maximized>yes</maximized>
     </application>
     <application name="gsimplecal">
