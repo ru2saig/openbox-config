@@ -829,6 +829,15 @@
         <monitor>1</monitor>
       </position>
     </application>
+
+    <application name="tint2">
+      <position force="yes">
+        <x>0</x>
+        <y>0</y>
+        <monitor>1</monitor>
+      </position>
+    </application>
+
     <application name="firefox">
       <maximized>yes</maximized>
     </application>

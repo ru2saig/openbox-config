@@ -43,38 +43,6 @@
     </item>
   </menu>
 
-
-  <menu id="apps-graphics-menu" label="Graphics"
-	icon="/usr/share/icons/Qogir-ubuntu-dark/24/actions/graphics.svg">
-    <item label="Gimp"
-	  icon="/usr/share/icons/hicolor/48x48/apps/gimp.png">
-    <action name="Execute">
-      <command>gimp</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
-  <item label="Blender"
-	icon="/usr/share/icons/hicolor/scalable/apps/blender.svg">
-    <action name="Execute">
-      <command>blender</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
-  <item label="Inkscape"
-	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/inkscape.svg">
-    <action name="Execute">
-      <command>inkscape</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
-</menu>
-
 <menu id="system-menu" label="System">
   <item label="Obconf"
 	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/obconf.svg">
@@ -94,19 +62,18 @@
       </startupnotify>
     </action>
   </item>
-    <item label="Xsettings"
-	icon="/usr/share/icons/Qogir-ubuntu-dark/24/actions/graphics.svg">
+   <item label="Tint2 Configuration">
     <action name="Execute">
-      <command>emacsw ~/.xsettingsd</command>
+      <command>emacsw ~/.config/tint2/tint2rc </command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
     </action>
   </item>
-  <item label="Picom Configuration"
+  <item label="Compton Configuration"
 	icon="/usr/share/icons/Qogir/scalable/devices/monitor.svg">
     <action name="Execute">
-      <command>emacsw ~/.config/picom/picom.conf</command>
+      <command>emacsw ~/.config/compton.conf</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
@@ -171,10 +138,9 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Firefox Private Window"
-	icon="/home/ruusaig/Pictures/logo-firefox-focus.png"> 	<!-- Get the icon from: https://www.mozilla.org/media/img/structured-data/logo-firefox-focus.f5f0b924422f. --> 
+  <item label="Signal">
     <action name="Execute">
-      <command>firefox --private-window</command>
+      <command>signal-desktop</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>

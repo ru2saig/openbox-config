@@ -1,8 +1,10 @@
 # set the background
 ~/.fehbg &
 
-# launch picom
-#picom -b
+(sleep 1 && tint2) &
+
+# launch compton
+compton -b
 
 # notification daemon
 #/usr/bin/dunst &
