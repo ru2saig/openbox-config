@@ -5,9 +5,10 @@
 picom -b
 
 # notification daemon
-/usr/bin/dunst &
+/usr/lib/xfce4/notifyd/xfce4-notifyd &
 
 xsettingsd &
+# east or west xfce is the best!
 xfce4-panel -d --sm-client-disable &
 xfce4-power-manager &
 thunar --daemon
