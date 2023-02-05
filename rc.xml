@@ -158,7 +158,7 @@
     <right>0</right>
   </margins>
   <dock>
-    <position>Top</position>
+    <position>Bottom</position>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
@@ -262,6 +262,9 @@
       </action>
     </keybind> -->
     <!-- Keybindings for window switching -->
+    <!--
+
+    -->
     <keybind key="A-Tab">
       <action name="NextWindow">
         <dialog>icons</dialog>
@@ -282,9 +285,6 @@
       </action>
     </keybind>
     <!-- keybindings for media keys -->
-    <!-- #TODO: Add a script or something that uses this to change the icon in the xfce4-panel, maybe a full plugin? or a genmon script?
-	 It will need to have a slider as well, to control the volume from there. Change icon when vol changes, need to show notification?
-    -->
     <keybind key="XF86AudioRaiseVolume">
       <action name="Execute">
         <command> amixer set Master 5%+ </command>
@@ -312,8 +312,8 @@
     </keybind>
     <!-- keybingings for moving and resizing windows -->
     <!--
-	W-F1: Move focused window to monitor 1
-	W-F2: Move focused window to monitor 2
+	W-S-F1: Move focused window to monitor 1
+	W-S-F2: Move focused window to monitor 2
 	W-S-a: Shift the window to the left
 	W-S-d: Shift the window to the right
 	W-S-w: Shift the window up
@@ -343,525 +343,543 @@
     -->
     <keybind key="W-C-s">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>0</right>
-	<top>0</top>
-	<bottom>-5</bottom>
+        <left>0</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>-5</bottom>
       </action>
     </keybind>
     <keybind key="W-A-s">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>0</right>
-	<top>0</top>
-	<bottom>5</bottom>
+        <left>0</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>5</bottom>
       </action>
     </keybind>
-	
     <keybind key="W-C-d">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>-5</right>
-	<top>0</top>
-	<bottom>0</bottom>
+        <left>0</left>
+        <right>-5</right>
+        <top>0</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
     <keybind key="W-A-d">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>5</right>
-	<top>0</top>
-	<bottom>0</bottom>
+        <left>0</left>
+        <right>5</right>
+        <top>0</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
     <keybind key="W-C-w">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>0</right>
-	<top>-5</top>
-	<bottom>0</bottom>
+        <left>0</left>
+        <right>0</right>
+        <top>-5</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
     <keybind key="W-A-w">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>0</right>
-	<top>5</top>
-	<bottom>0</bottom>
+        <left>0</left>
+        <right>0</right>
+        <top>5</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
     <keybind key="W-C-a">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>-5</left>
-	<right>0</right>
-	<top>0</top>
-	<bottom>0</bottom>
+        <left>-5</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
     <keybind key="W-A-a">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>5</left>
-	<right>0</right>
-	<top>0</top>
-	<bottom>0</bottom>
+        <left>5</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
-
     <keybind key="W-C-v">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>-5</right>
-	<top>0</top>
-	<bottom>-5</bottom>
+        <left>0</left>
+        <right>-5</right>
+        <top>0</top>
+        <bottom>-5</bottom>
       </action>
     </keybind>
     <keybind key="W-A-v">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>5</right>
-	<top>0</top>
-	<bottom>5</bottom>
+        <left>0</left>
+        <right>5</right>
+        <top>0</top>
+        <bottom>5</bottom>
       </action>
     </keybind>
     <keybind key="W-C-c">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>-5</left>
-	<right>0</right>
-	<top>0</top>
-	<bottom>-5</bottom>
+        <left>-5</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>-5</bottom>
       </action>
     </keybind>
-	
     <keybind key="W-A-c">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>5</left>
-	<right>0</right>
-	<top>0</top>
-	<bottom>5</bottom>
+        <left>5</left>
+        <right>0</right>
+        <top>0</top>
+        <bottom>5</bottom>
       </action>
     </keybind>
-    
     <keybind key="W-C-t">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>-5</right>
-	<top>-5</top>
-	<bottom>0</bottom>
+        <left>0</left>
+        <right>-5</right>
+        <top>-5</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
-
     <keybind key="W-A-t">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>0</left>
-	<right>5</right>
-	<top>5</top>
-	<bottom>0</bottom>
+        <left>0</left>
+        <right>5</right>
+        <top>5</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
-	
     <keybind key="W-C-r">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>-5</left>
-	<right>0</right>
-	<top>-5</top>
-	<bottom>0</bottom>
+        <left>-5</left>
+        <right>0</right>
+        <top>-5</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
-    
     <keybind key="W-A-r">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>5</left>
-	<right>0</right>
-	<top>5</top>
-	<bottom>0</bottom>
+        <left>5</left>
+        <right>0</right>
+        <top>5</top>
+        <bottom>0</bottom>
       </action>
     </keybind>
-
     <keybind key="W-C-e">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="ResizeRelative">
-	<left>-5</left>
-	<right>-5</right>
-	<top>-5</top>
-	<bottom>-5</bottom>
+        <left>-5</left>
+        <right>-5</right>
+        <top>-5</top>
+        <bottom>-5</bottom>
       </action>
     </keybind>
-
     <keybind key="W-A-e">
+      <action name="If">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>+-0</x>
+            <y>+-0</y>
+            <width>100%</width>
+            <height>100%</height>
+            <monitor>current</monitor>
+          </action>
+        </then>
+      </action>
+      <action name="ResizeRelative">
+        <left>5</left>
+        <right>5</right>
+        <top>5</top>
+        <bottom>5</bottom>
+      </action>
+    </keybind>
+    <keybind key="W-S-F1">
       <action name="If">
 	<query target="focus">
 	  <maximized>yes</maximized>
+	  <monitor>2</monitor>
 	</query>
 	<then>
 	  <action name="Unmaximize"/>
 	  <action name="MoveResizeTo">
-            <x>+-0</x>
-            <y>+-0</y>
-            <width>100%</width>
-            <height>100%</height>
-	    <monitor>current</monitor>
+            <monitor> 1 </monitor>
 	  </action>
+	  <action name="Maximize"/>
 	</then>
-      </action>
-      <action name="ResizeRelative">
-	<left>5</left>
-	<right>5</right>
-	<top>5</top>
-	<bottom>5</bottom>
+	<else>
+	  <action name="MoveResizeTo">
+            <monitor> 1 </monitor>
+	  </action>
+	</else>
       </action>
     </keybind>
+    <keybind key="W-S-F2">
+      <action name="If">
+	<query target="focus">
+	  <maximized>yes</maximized>
+	  <monitor> 1 </monitor>
+	</query>
+	<then>
+	  <action name="Unmaximize"/>
+	  <action name="MoveResizeTo">
+            <monitor> 2 </monitor>
+	  </action>
+	  <action name="Maximize"/>
+	</then>
+	<else>
+	  <action name="MoveResizeTo">
+            <monitor>2</monitor>
+	  </action>
+	</else>
+      </action>
 
-    <keybind key="W-F1">
-      <action name="MoveResizeTo">
-	<monitor> 1 </monitor>
-      </action>
-    </keybind>
-    <keybind key="W-F2">
-      <action name="MoveResizeTo">
-	<monitor> 2 </monitor>
-      </action>
     </keybind>
     <keybind key="W-S-a">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="MoveRelative">
-	<x>-10</x>
-	<y>0</y>
+        <x>-10</x>
+        <y>0</y>
       </action>
     </keybind>
     <keybind key="W-S-d">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="MoveRelative">
-	<x>10</x>
-	<y>0</y>
+        <x>10</x>
+        <y>0</y>
       </action>
     </keybind>
     <keybind key="W-S-w">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="MoveRelative">
-	<x>0</x>
-	<y>-10</y>
+        <x>0</x>
+        <y>-10</y>
       </action>
     </keybind>
     <keybind key="W-S-s">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <x>+-0</x>
             <y>+-0</y>
             <width>100%</width>
             <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
-	</then>
+            <monitor>current</monitor>
+          </action>
+        </then>
       </action>
       <action name="MoveRelative">
-	<x>0</x>
-	<y>10</y>
+        <x>0</x>
+        <y>10</y>
       </action>
     </keybind>
-
-    
-    
     <!-- keybindings for window snapping. These work on the current monitor the window is on -->
     <!--
 	W-S-Return: Toggle Maximize
@@ -882,19 +900,14 @@
         <y>center</y>
         <width>2/3</width>
         <height>2/3</height>
-	<monitor>current</monitor>
-      </action>
-    </keybind>
-
-    <keybind key="W-S-Return">
-      <action name="ToggleMaximize">
-	<direction> both </direction>
-      </action>
-      <action name="MoveResizeTo">
         <monitor>current</monitor>
       </action>
     </keybind>
-    
+    <keybind key="W-S-Return">
+      <action name="ToggleMaximize">
+        <direction> both </direction>
+      </action>
+    </keybind>
     <keybind key="W-S-h">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
@@ -902,7 +915,7 @@
         <y>+-0</y>
         <width>50%</width>
         <height>100%</height>
-	<monitor>current</monitor>
+        <monitor>current</monitor>
       </action>
     </keybind>
     <keybind key="W-S-l">
@@ -912,7 +925,7 @@
         <y>+-0</y>
         <width>50%</width>
         <height>100%</height>
-	<monitor>current</monitor>
+        <monitor>current</monitor>
       </action>
     </keybind>
     <keybind key="W-S-k">
@@ -922,7 +935,7 @@
         <y>+-0</y>
         <width>100%</width>
         <height>50%</height>
-	<monitor>current</monitor>
+        <monitor>current</monitor>
       </action>
     </keybind>
     <keybind key="W-S-j">
@@ -932,7 +945,7 @@
         <y>--center</y>
         <width>100%</width>
         <height>50%</height>
-	<monitor>current</monitor>
+        <monitor>current</monitor>
       </action>
     </keybind>
     <keybind key="W-A-h">
@@ -942,7 +955,7 @@
         <y>+-0</y>
         <width>50%</width>
         <height>50%</height>
-	<monitor>current</monitor>
+        <monitor>current</monitor>
       </action>
     </keybind>
     <keybind key="W-A-l">
@@ -952,7 +965,7 @@
         <y>+-0</y>
         <width>50%</width>
         <height>50%</height>
-	<monitor>current</monitor>
+        <monitor>current</monitor>
       </action>
     </keybind>
     <keybind key="W-C-h">
@@ -962,7 +975,7 @@
         <y>--center</y>
         <width>50%</width>
         <height>50%</height>
-	<monitor>current</monitor>
+        <monitor>current</monitor>
       </action>
     </keybind>
     <keybind key="W-C-l">
@@ -972,7 +985,7 @@
         <y>--center</y>
         <width>50%</width>
         <height>50%</height>
-	<monitor>current</monitor>
+        <monitor>current</monitor>
       </action>
     </keybind>
     <!-- Keybindings for running applications -->
@@ -1093,7 +1106,7 @@
         <action name="Unshade"/>
       </mousebind>
       <mousebind button="W-Left" action="Drag">
-	<action name="ToggleMaximize"/>
+        <action name="ToggleMaximize"/>
         <action name="Move"/>
       </mousebind>
       <mousebind button="A-Right" action="Press">
