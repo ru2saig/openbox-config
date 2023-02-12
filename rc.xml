@@ -757,44 +757,43 @@
     </keybind>
     <keybind key="W-S-F1">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	  <monitor>2</monitor>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+          <monitor>2</monitor>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <monitor> 1 </monitor>
-	  </action>
-	  <action name="Maximize"/>
-	</then>
-	<else>
-	  <action name="MoveResizeTo">
+          </action>
+          <action name="Maximize"/>
+        </then>
+        <else>
+          <action name="MoveResizeTo">
             <monitor> 1 </monitor>
-	  </action>
-	</else>
+          </action>
+        </else>
       </action>
     </keybind>
     <keybind key="W-S-F2">
       <action name="If">
-	<query target="focus">
-	  <maximized>yes</maximized>
-	  <monitor> 1 </monitor>
-	</query>
-	<then>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
+        <query target="focus">
+          <maximized>yes</maximized>
+          <monitor> 1 </monitor>
+        </query>
+        <then>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
             <monitor> 2 </monitor>
-	  </action>
-	  <action name="Maximize"/>
-	</then>
-	<else>
-	  <action name="MoveResizeTo">
+          </action>
+          <action name="Maximize"/>
+        </then>
+        <else>
+          <action name="MoveResizeTo">
             <monitor>2</monitor>
-	  </action>
-	</else>
+          </action>
+        </else>
       </action>
-
     </keybind>
     <keybind key="W-S-a">
       <action name="If">
@@ -1015,9 +1014,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Firefox</name>
+          <name>Librewolf</name>
         </startupnotify>
-        <command>firefox</command>
+        <command>librewolf</command>
       </action>
     </keybind>
     <keybind key="C-A-t">
@@ -1428,6 +1427,10 @@
       </position>
     </application>
     <application name="firefox">
+      <decor>no</decor>
+      <maximized>yes</maximized>
+    </application>
+    <application class="LibreWolf">
       <decor>no</decor>
       <maximized>yes</maximized>
     </application>
