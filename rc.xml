@@ -246,19 +246,6 @@
     </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
-      <action name="Execute">
-        <command> ~/Scripts/hidepanel.sh </command>
-	<!-- source for hidepanel.sh
-	     #!/usr/bin/env bash
-	     val=$(xfconf-query -c xfce4-panel -p /panels/panel-1/leave-opacity)
-	     echo $val
-	     if (( val > 0)); then 
-        	     xfconf-query -c xfce4-panel -p /panels/panel-1/leave-opacity -t int -s 0
-	     else
-	             xfconf-query -c xfce4-panel -p /panels/panel-1/leave-opacity -t int -s 100
-	     fi
-	-->
-      </action>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
