@@ -43,8 +43,51 @@
     </item>
   </menu>
 
+  <menu id="apps-3dprinting-menu" label="3D-Printing">
+    <item label="Cura"
+	  icon="/usr/share/pixmaps/cura-icon.png">
+      <action name="Execute">
+	<command>cura</command>
+	<startupnotify>
+          <enabled>yes</enabled>
+	</startupnotify>
+      </action>
+    </item>
+  </menu>
 
-  <menu id="apps-graphics-menu" label="Graphics"
+  <menu id="apps-3dmodelling-menu" label="3D-Modelling">
+    <item label="Blender"
+	  icon="/usr/share/icons/Qogir/scalable/apps/blender.svg">
+      <action name="Execute">
+	<command>blender</command>
+	<startupnotify>
+          <enabled>yes</enabled>
+	</startupnotify>
+      </action>
+    </item>
+    <item label="FreeCAD"
+	  icon="/usr/share/icons/Qogir/scalable/apps/freecad.svg">
+      <action name="Execute">
+	<command>freecad</command>
+	<startupnotify>
+          <enabled>yes</enabled>
+	</startupnotify>
+      </action>
+    </item>
+    <item label="OpenSCAD"
+	  icon="/usr/share/icons/hicolor/64x64/apps/openscad.png">
+      <action name="Execute">
+	<command>openscad</command>
+	<startupnotify>
+          <enabled>yes</enabled>
+	</startupnotify>
+      </action>
+    </item>
+  </menu>
+
+
+  
+  <menu id="apps-graphics-menu" label="Design"
 	icon="/usr/share/icons/Qogir-ubuntu-dark/24/actions/graphics.svg">
     <item label="Gimp"
 	  icon="/usr/share/icons/hicolor/48x48/apps/gimp.png">
@@ -55,17 +98,8 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Blender"
-	icon="/usr/share/icons/hicolor/scalable/apps/blender.svg">
-    <action name="Execute">
-      <command>blender</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
   <item label="Inkscape"
-	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/inkscape.svg">
+	icon="/usr/share/icons/Qogir/scalable/apps/inkscape.svg">
     <action name="Execute">
       <command>inkscape</command>
       <startupnotify>
@@ -73,11 +107,43 @@
       </startupnotify>
     </action>
   </item>
+  <item label="Glade"
+	icon="/usr/share/icons/Qogir/scalable/apps/glade-3.svg">
+    <action name="Execute">
+      <command>glade</command>
+      <startupnotify>
+        <enabled>yes</enabled>
+      </startupnotify>
+    </action>
+  </item>
+</menu>
+
+<menu id="power" label="Power">
+  <item label="Sleep">
+    <action name="Execute">
+      <command>loginctl suspend</command>
+    </action
+  </item>
+  <item label="Hibernate">
+    <action name="Execute">
+      <command>loginctl hibernate</command>
+    </action
+  </item>
+  <item label="Shutdown">
+    <action name="Execute">
+      <command>loginctl poweroff</command>
+    </action
+  </item>
+  <item label="Reboot">
+    <action name="Execute">
+      <command>loginctl reboot</command>
+    </action
+  </item>
 </menu>
 
 <menu id="system-menu" label="System">
   <item label="Obconf"
-	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/obconf.svg">
+	icon="/usr/share/pixmaps/obconf.png">
     <action name="Execute">
       <command>obconf</command>
       <startupnotify>
@@ -86,7 +152,7 @@
     </action>
   </item>
   <item label="Appearance"
-	icon="/usr/share/icons/Qogir-ubuntu-dark/24/actions/graphics.svg">
+	icon="/usr/share/icons/Qogir-dark/22/actions/graphics.svg">
     <action name="Execute">
       <command>lxappearance</command>
       <startupnotify>
@@ -95,7 +161,7 @@
     </action>
   </item>
     <item label="Xsettings"
-	icon="/usr/share/icons/Qogir-ubuntu-dark/24/actions/graphics.svg">
+	icon="/usr/share/icons/Qogir-dark/22/actions/graphics.svg">
     <action name="Execute">
       <command>emacsw ~/.xsettingsd</command>
       <startupnotify>
@@ -122,7 +188,7 @@
     </action>
   </item>
   <item label="Openbox menu.xml"
-	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/openbox.svg">
+	icon="/usr/share/pixmaps/openbox.png">
     <action name="Execute">
       <command>emacsw ~/.config/openbox/menu.xml</command>
       <startupnotify>
@@ -131,7 +197,7 @@
     </action>
   </item>
   <item label="Openbox rc.xml"
-	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/openbox.svg">
+	icon="/usr/share/pixmaps/openbox.png">
     <action name="Execute">
       <command>emacsw ~/.config/openbox/rc.xml</command>
       <startupnotify>
@@ -140,7 +206,7 @@
     </action>
   </item>
   <item label="Openbox autostart"
-	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/openbox.svg">
+	icon="/usr/share/pixmaps/openbox.png">
     <action name="Execute">
       <command>emacsw ~/.config/openbox/autostart</command>
       <startupnotify>
@@ -154,7 +220,7 @@
 <menu id="root-menu" label="Openbox 3">
   <separator label="Applications" />
   <item label="Emacs"
-	icon="/usr/share/icons/hicolor/scalable/apps/emacs.svg">
+	icon="/usr/share/pixmaps/emacs.png">
     <action name="Execute">
       <command>emacsw</command>
       <startupnotify>
@@ -163,7 +229,7 @@
     </action>
   </item>
   <item label="Firefox"
-	icon="/usr/share/icons/hicolor/scalable/apps/firefox.svg">
+	icon="/usr/share/pixmaps/firefox-bin.png">
     <action name="Execute">
       <command>firefox</command>
       <startupnotify>
@@ -190,7 +256,7 @@
     </action>
   </item>
   <item label="Terminal Emulator"
-	icon="/usr/share/icons/Qogir-ubuntu/scalable/apps/terminal.svg">
+	icon="/usr/share/icons/Adwaita/scalable/legacy/utilities-terminal-symbolic.svg">
     <action name="Execute">
       <command>st</command>
       <startupnotify>
@@ -200,9 +266,12 @@
   </item>
   <menu id="apps-office-menu"/>
   <menu id="apps-graphics-menu"/>
+  <menu id="apps-3dmodelling-menu"/>
+  <menu id="apps-3dprinting-menu"/>
   
   <separator label="System" />
   <menu id="system-menu"/>
+  <menu id="power"/>
   <separator />
   <!-- TODO: Add that logout settings application here -->
   <item label="Log Out">

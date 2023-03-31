@@ -49,7 +49,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>Velnias</name>
+    <name>Arc-Dark</name>
     <keepBorder>yes</keepBorder>
     <animateIconify>no</animateIconify>
     <font place="ActiveWindow">
@@ -120,12 +120,12 @@
     <number>6</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>1</name>
-      <name>2</name>
-      <name>3</name>
-      <name>4</name>
-      <name>5</name>
-      <name>6</name>
+      <name>ᚤ</name>
+      <name>ᚼ</name>
+      <name>ᛉ</name>
+      <name>ᛈ</name>
+      <name>ᛇ</name>
+      <name>ᛃ</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -154,7 +154,7 @@
   <margins>
     <top>0</top>
     <bottom>0</bottom>
-    <left>0</left>
+    <left>23</left>
     <right>0</right>
   </margins>
   <dock>
@@ -295,6 +295,16 @@
         <command> amixer set Master 5%- </command>
       </action>
     </keybind>
+    <keybind key="C-XF86AudioRaiseVolume">
+      <action name="Execute">
+        <command> amixer set Master 1%+ </command>
+      </action>
+    </keybind>
+    <keybind key="C-XF86AudioLowerVolume">
+      <action name="Execute">
+        <command> amixer set Master 1%- </command>
+      </action>
+    </keybind>
     <keybind key="XF86AudioMute">
       <action name="Execute">
         <command> amixer set Master toggle </command>
@@ -310,6 +320,17 @@
         <command> xbacklight -5 </command>
       </action>
     </keybind>
+    <keybind key="C-XF86MonBrightnessUp">
+      <action name="Execute">
+        <command> xbacklight +1 </command>
+      </action>
+    </keybind>
+    <keybind key="C-XF86MonBrightnessDown">
+      <action name="Execute">
+        <command> xbacklight -1 </command>
+      </action>
+    </keybind>
+
     <!-- keybingings for moving and resizing windows -->
     <!--
 	W-S-F1: Move focused window to monitor 1
@@ -1014,9 +1035,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>Librewolf</name>
+          <name>Web Browser</name>
         </startupnotify>
-        <command>librewolf</command>
+        <command>firefox</command>
       </action>
     </keybind>
     <keybind key="C-A-t">

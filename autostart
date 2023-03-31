@@ -5,16 +5,17 @@
 picom -b
 
 # notification daemon
-/usr/lib/xfce4/notifyd/xfce4-notifyd &
+#/usr/lib/xfce4/notifyd/xfce4-notifyd &
+dunst & 
 
 xsettingsd &
 # east or west xfce is the best!
 xfce4-panel -d --sm-client-disable &
-xfce4-power-manager &
+# xfce4-power-manager &
 thunar --daemon
 
 # gnome polkit
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # turn off the annoying beep sound
 xset b off &
