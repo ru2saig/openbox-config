@@ -330,7 +330,6 @@
         <command> xbacklight -1 </command>
       </action>
     </keybind>
-
     <!-- keybingings for moving and resizing windows -->
     <!--
 	W-S-F1: Move focused window to monitor 1

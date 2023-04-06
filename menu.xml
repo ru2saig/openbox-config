@@ -47,7 +47,19 @@
     <item label="Cura"
 	  icon="/usr/share/pixmaps/cura-icon.png">
       <action name="Execute">
-	<command>cura</command>
+	<command>cura -platformtheme gtk3</command>
+	<startupnotify>
+          <enabled>yes</enabled>
+	</startupnotify>
+      </action>
+    </item>
+  </menu>
+
+  <menu id="apps-robotics-menu" label="Robotics">
+    <item label="CoppelliaSim"
+	  icon="/usr/share/pixmaps/CoppeliaSim-icon.png">
+      <action name="Execute">
+	<command>/home/ruusaig/Downloads/CoppeliaSim_Edu_V4_5_1_rev2_Ubuntu22_04/coppeliaSim.sh</command>
 	<startupnotify>
           <enabled>yes</enabled>
 	</startupnotify>
@@ -268,6 +280,7 @@
   <menu id="apps-graphics-menu"/>
   <menu id="apps-3dmodelling-menu"/>
   <menu id="apps-3dprinting-menu"/>
+  <menu id="apps-robotics-menu"/>
   
   <separator label="System" />
   <menu id="system-menu"/>
