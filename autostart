@@ -19,3 +19,7 @@ thunar --daemon
 
 # turn off the annoying beep sound
 xset b off &
+
+# disable the touchscreen
+xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
+xinput disable "ELAN Touchscreen"
