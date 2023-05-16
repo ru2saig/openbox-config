@@ -21,5 +21,5 @@ thunar --daemon
 xset b off &
 
 # disable the touchscreen
-xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
-xinput disable "ELAN Touchscreen"
+# xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
+# xinput disable "ELAN Touchscreen"

@@ -59,7 +59,7 @@
     <item label="CoppelliaSim"
 	  icon="/usr/share/pixmaps/CoppeliaSim-icon.png">
       <action name="Execute">
-	<command>/home/ruusaig/Downloads/CoppeliaSim_Edu_V4_5_1_rev2_Ubuntu22_04/coppeliaSim.sh</command>
+	<command>/opt/CoppeliaSim_Edu/coppeliaSim.sh</command>
 	<startupnotify>
           <enabled>yes</enabled>
 	</startupnotify>
