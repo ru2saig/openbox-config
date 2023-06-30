@@ -1,3 +1,4 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <openbox_config xmlns="http://openbox.org/3.4/rc" xmlns:xi="http://www.w3.org/2001/XInclude">
   <!-- 
@@ -117,7 +118,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>6</number>
+    <number>7</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>ᚤ</name>
@@ -125,7 +126,8 @@
       <name>ᛉ</name>
       <name>ᛈ</name>
       <name>ᛇ</name>
-      <name>ᛃ</name>
+      <name>ᛟ</name>
+      <name>ᚱ</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -154,7 +156,7 @@
   <margins>
     <top>0</top>
     <bottom>0</bottom>
-    <left>23</left>
+    <left>0</left>
     <right>0</right>
   </margins>
   <dock>
@@ -214,6 +216,12 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="W-S-7">
+      <action name="SendToDesktop">
+        <to>7</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
     <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
@@ -242,6 +250,11 @@
     <keybind key="W-6">
       <action name="GoToDesktop">
         <to>6</to>
+      </action>
+    </keybind>
+    <keybind key="W-7">
+      <action name="GoToDesktop">
+        <to>7</to>
       </action>
     </keybind>
     <keybind key="W-d">
@@ -332,7 +345,7 @@
     </keybind>
     <keybind key="F4">
       <action name="Execute">
-        <command>~/Scripts/toggle_touchscreen.py "ELAN Touchscreen" 11</command>
+        <command>~/Scripts/toggle_touchscreen.py 9 9</command>
       </action>
     </keybind>
     <!-- keybingings for moving and resizing windows -->
