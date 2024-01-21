@@ -1,3 +1,8 @@
+# keyring and polkit stuff
+sleep 1 && /usr/libexec/polkit-gnome-authentication-agent-1 &
+dbus-update-activation-environment --all &
+gnome-keyring-daemon --start --components=secrets &
+
 # set the background
 ~/.fehbg &
 
@@ -11,14 +16,15 @@ dunst &
 xsettingsd &
 # east or west xfce is the best!
 xfce4-panel -d --sm-client-disable &
-thunar --daemon
-
-# gnome polkit
-#(sleep 3 && /usr/libexec/polkit-gnome-authentication-agent-1) &
+thunar --daemon &
 
 # turn off the annoying beep sound
 xset b off &
+nextcloud --background &
 
 # disable the touchscreen
 # xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
 # xinput disable "ELAN Touchscreen"
+
+# hide the cursor!
+unclutter -idle 5 &
