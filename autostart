@@ -26,5 +26,7 @@ nextcloud --background &
 # xinput set-prop "ELAN Touchscreen" "Device Enabled" 0
 # xinput disable "ELAN Touchscreen"
 
+conky
+
 # hide the cursor!
 unclutter -idle 5 &

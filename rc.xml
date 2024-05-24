@@ -117,7 +117,7 @@
 
        use obconf if you want to change these without having to log out
        and back in -->
-    <number>7</number>
+    <number>8</number>
     <firstdesk>1</firstdesk>
     <names>
       <name>ᚤ</name>
@@ -127,6 +127,7 @@
       <name>ᛇ</name>
       <name>ᛟ</name>
       <name>ᚱ</name>
+      <name>ᛏ</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -221,6 +222,12 @@
         <wrap>no</wrap>
       </action>
     </keybind>
+    <keybind key="W-S-8">
+      <action name="SendToDesktop">
+        <to>8</to>
+        <wrap>no</wrap>
+      </action>
+    </keybind>
     <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
@@ -256,6 +263,11 @@
         <to>7</to>
       </action>
     </keybind>
+    <keybind key="W-8">
+      <action name="GoToDesktop">
+        <to>8</to>
+      </action>
+    </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
     </keybind>
@@ -277,16 +289,17 @@
     <!--
 
     -->
-    <keybind key="W-s"> <!-- If there are no windows on a monitor, ya have to move the mouse -->
+    <keybind key="W-s">
+      <!-- If there are no windows on a monitor, ya have to move the mouse -->
       <action name="Execute">
         <command> ~/Scripts/switchMonitor.sh </command>
       </action>
     </keybind>
     <keybind key="Alt-Tab">
       <action name="NextWindow">
-	<raise>yes</raise>
-	<dialog>icons</dialog>
-	<linear>no</linear>
+        <raise>no</raise>
+        <dialog>icons</dialog>
+        <linear>no</linear>
         <finalactions>
           <action name="Focus"/>
           <action name="Raise"/>
@@ -296,9 +309,9 @@
     </keybind>
     <keybind key="Alt-S-Tab">
       <action name="PreviousWindow">
-	<raise>yes</raise>
-	<dialog>icons</dialog>
-	<linear>no</linear>
+        <raise>no</raise>
+        <dialog>icons</dialog>
+        <linear>no</linear>
         <finalactions>
           <action name="Focus"/>
           <action name="Raise"/>
@@ -920,13 +933,6 @@
     <application class="LibreWolf">
       <decor>no</decor>
       <maximized>yes</maximized>
-    </application>
-    <application name="gsimplecal">
-      <position force="yes">
-        <x>-50</x>
-        <y>-0</y>
-        <monitor>1</monitor>
-      </position>
     </application>
   </applications>
 </openbox_config>
