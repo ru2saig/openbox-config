@@ -272,9 +272,10 @@
     <!-- TODO: Add a menu for power options -->
     <!-- TODO: Add a menu for accessing things I use a lot quickly (scripts) -->
 	 
-    <!-- Keybindings for window switching -->
-    <keybind key="W-s">
-      <!-- Switches to the last used window on the other monitor -->
+    <!-- Keybindings for window switching. Assumes a dual monitor setup -->
+    <!-- Switch to next window, with the windows on the current monitor first
+     Effectively swtiches windows on current monitor, but does not cycle them. -->
+    <keybind key="W-n">
       <action name="If">
 	<query target="focus">
 	  <monitor>2</monitor>
@@ -283,48 +284,45 @@
 	<then>
 	  <action name="ForEach">
             <query>
-              <monitor>2</monitor>
+	      <monitor>1</monitor>
               <desktop>current</desktop>
             </query>
             <then>
 	      <action name="Unfocus"/>
-            </then>
+	      <action name="FocusToBottom"/>
+	    </then>
 	  </action>
+	  <action name="NextWindow">
+            <raise>no</raise>
+            <dialog>none</dialog>
+            <finalactions>
+	      <action name="Focus"/>
+              <action name="Raise"/>
+              <action name="Unshade"/>
+            </finalactions>
+          </action>
 	</then>
 	<else>
 	  <action name="ForEach">
             <query>
-              <monitor>1</monitor>
+	      <monitor>2</monitor>
               <desktop>current</desktop>
             </query>
             <then>
 	      <action name="Unfocus"/>
-            </then>
+	      <action name="FocusToBottom"/>
+	    </then>
 	  </action>
+	  <action name="NextWindow">
+            <raise>no</raise>
+            <dialog>none</dialog>
+            <finalactions>
+	      <action name="Focus"/>
+              <action name="Raise"/>
+              <action name="Unshade"/>
+            </finalactions>
+          </action>
 	</else>
-      </action>
-    </keybind>
-    <keybind key="Alt-Tab">
-      <action name="NextWindow">
-        <raise>no</raise>
-        <dialog>icons</dialog>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
-      </action>
-    </keybind>
-    <keybind key="Alt-S-Tab">
-      <action name="PreviousWindow">
-        <raise>no</raise>
-        <dialog>icons</dialog>
-        <linear>no</linear>
-        <finalactions>
-          <action name="Focus"/>
-          <action name="Raise"/>
-          <action name="Unshade"/>
-        </finalactions>
       </action>
     </keybind>
     <!-- keybindings for media keys -->
