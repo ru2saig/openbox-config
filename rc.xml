@@ -273,8 +273,7 @@
     <!-- TODO: Add a menu for accessing things I use a lot quickly (scripts) -->
 	 
     <!-- Keybindings for window switching. Assumes a dual monitor setup -->
-    <!-- Switch to next window, with the windows on the current monitor first
-     Effectively swtiches windows on current monitor, but does not cycle them. -->
+    <!-- Switches to next window, but through the windows on the current monitor first. -->
     <keybind key="W-n">
       <action name="If">
 	<query target="focus">
@@ -294,7 +293,7 @@
 	  </action>
 	  <action name="NextWindow">
             <raise>no</raise>
-            <dialog>none</dialog>
+            <dialog>icons</dialog>
             <finalactions>
 	      <action name="Focus"/>
               <action name="Raise"/>
@@ -315,7 +314,7 @@
 	  </action>
 	  <action name="NextWindow">
             <raise>no</raise>
-            <dialog>none</dialog>
+            <dialog>icons</dialog>
             <finalactions>
 	      <action name="Focus"/>
               <action name="Raise"/>
@@ -324,6 +323,9 @@
           </action>
 	</else>
       </action>
+    </keybind>
+    <keybind key="W-p">
+      <!-- TODO: Prev visited window on current monitor -->
     </keybind>
     <!-- keybindings for media keys -->
     <keybind key="XF86AudioRaiseVolume">
