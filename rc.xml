@@ -325,7 +325,15 @@
       </action>
     </keybind>
     <keybind key="W-p">
-      <!-- TODO: Prev visited window on current monitor -->
+      <action name="PreviousWindow">
+        <raise>no</raise>
+        <dialog>icons</dialog>
+        <finalactions>
+	  <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+        </finalactions>
+      </action>
     </keybind>
     <!-- keybindings for media keys -->
     <keybind key="XF86AudioRaiseVolume">
