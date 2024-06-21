@@ -207,14 +207,43 @@
     <!-- TODO: Add a menu for power options -->
     <!-- TODO: Add a menu for accessing things I use a lot quickly (scripts) -->
     <!-- Keybindings for window layouts. The n recently used windows will be split on the monitor of the window that an incantation is called upon (including the focussed window). Assumes that these n windows are all on the same monitor. If they're not, weird stuff happen!
-	 
-	 W-C-1: Splits the 2 most recent windows in a 50-50 split. For best results, make sure that the windows are on the same monitors.
-	 W-C-2:
-	 W-C-3:
-	 W-C-4:
+
+	 W-C-1: Splits the 2 most recent windows in a 50-50 split. Gives focus to the "selected" window, which is placed on the left
+	 W-C-2: Splits the 2 most recent windows in a 50-50 split. Puts the "selected" window on the right, and focus is left on the "selection" started on.
+	 W-C-3: Splits with first window on the right, other 2 vertical split 50% width
+	 W-C-4: Splits into 4.
+	 W-C-5:
     -->
     <!-- Select what window to split with by visiting it before running this keybind, from the other window to split with. -->
     <keybind key="W-C-1">
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+	<x>0</x>
+	<y>0</y>
+	<width>50%</width>
+	<height>100%</height>
+	<monitor>current</monitor>
+      </action>
+
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>no</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="Unmaximize"/>
+	  <action name="MoveResizeTo">
+	    <x>50%</x>
+	    <y>0</y>
+	    <width>50%</width>
+	    <height>100%</height>
+	    <monitor>current</monitor>
+	  </action>
+	</finalactions>
+      </action>
+
+      <action name="Focus"/>
+    </keybind>
+    <keybind key="W-C-2">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
 	<x>50%</x>
@@ -229,14 +258,14 @@
 	<raise>no</raise>
 	<interactive>no</interactive>
 	<finalactions>
-	  <action name="Unmaximize"/>
-	  <action name="MoveResizeTo">
-	    <x>0</x>
-	    <y>0</y>
-	    <width>50%</width>
-	    <height>100%</height>
-	    <monitor>current</monitor>
-	  </action>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>0</y>
+            <width>50%</width>
+            <height>100%</height>
+            <monitor>current</monitor>
+          </action>
 	</finalactions>
       </action>
 
