@@ -206,33 +206,50 @@
     <!-- TOOD: Add a menu for directory traversal -->
     <!-- TODO: Add a menu for power options -->
     <!-- TODO: Add a menu for accessing things I use a lot quickly (scripts) -->
-    <!-- Keybindings for window layouts. The most n recently used windows will be split on the monitor of the window that the incantation was called upon.
+    <!-- Keybindings for window layouts. The n recently used windows will be split on the monitor of the window that an incantation is called upon (including the focussed window). Assumes that these n windows are all on the same monitor. If they're not, weird stuff happen!
 	 
-	 W-C-1: Splits the 2 most recent windows of the current monitors in a 50-50 split. Ensure there are at least 2 on the monitor!
+	 W-C-1: Splits the 2 most recent windows in a 50-50 split. For best results, make sure that the windows are on the same monitors.
 	 W-C-2:
 	 W-C-3:
 	 W-C-4:
     -->
+    <!-- Select what window to split with by visiting it before running this keybind, from the other window to split with. -->
     <keybind key="W-C-1">
-      <!-- The If is to ensure that the windows are split on the monitor that has the focussed window -->
-      <action name="If">
-	<query target="focus">
-	  <monitor>2</monitor>
-	  <desktop>current</desktop>
-	</query>
-	<then>
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+	<x>50%</x>
+	<y>0</y>
+	<width>50%</width>
+	<height>100%</height>
+	<monitor>current</monitor>
+      </action>
 
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>no</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="Unmaximize"/>
+	  <action name="MoveResizeTo">
+	    <x>0</x>
+	    <y>0</y>
+	    <width>50%</width>
+	    <height>100%</height>
+	    <monitor>current</monitor>
+	  </action>
+	</finalactions>
+      </action>
 
-	</then>
-	<else>
-
-	  
-	</else>
+      <!-- Move focus back to the original window -->
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>yes</raise>
+	<interactive>no</interactive>
       </action>
     </keybind>
     
     <!-- Keybindings for window switching.
-	 W-n: Switches to the next window; but starting from the windows on the monitor of the window that had focus when the incantation was run.
+	 W-n: Switches to the next window; but starting from the windows on the monitor of the window that had focus when the incantation was uttered.
 	 W-p: Previous window
     -->
     <keybind key="W-n">
