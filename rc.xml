@@ -335,140 +335,67 @@
         </finalactions>
       </action>
     </keybind>
-    <!-- keybindings for media keys -->
-    <keybind key="XF86AudioRaiseVolume">
-      <action name="Execute">
-        <command> amixer set Master 5%+ </command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioLowerVolume">
-      <action name="Execute">
-        <command> amixer set Master 5%- </command>
-      </action>
-    </keybind>
-    <keybind key="C-XF86AudioRaiseVolume">
-      <action name="Execute">
-        <command> amixer set Master 1%+ </command>
-      </action>
-    </keybind>
-    <keybind key="C-XF86AudioLowerVolume">
-      <action name="Execute">
-        <command> amixer set Master 1%- </command>
-      </action>
-    </keybind>
-    <keybind key="XF86AudioMute">
-      <action name="Execute">
-        <command> amixer set Master toggle </command>
-      </action>
-    </keybind>
-    <keybind key="XF86MonBrightnessUp">
-      <action name="Execute">
-        <command> xbacklight +5 </command>
-      </action>
-    </keybind>
-    <keybind key="XF86MonBrightnessDown">
-      <action name="Execute">
-        <command> xbacklight -5 </command>
-      </action>
-    </keybind>
-    <keybind key="C-XF86MonBrightnessUp">
-      <action name="Execute">
-        <command> xbacklight +1 </command>
-      </action>
-    </keybind>
-    <keybind key="C-XF86MonBrightnessDown">
-      <action name="Execute">
-        <command> xbacklight -1 </command>
-      </action>
-    </keybind>
-    <keybind key="F4">
-      <action name="Execute">
-        <command>~/Scripts/toggle_touchscreen.py 9 9</command>
-      </action>
-    </keybind>
     <!-- keybingings for moving and resizing windows -->
     <!--
-	W-S-F1: Move focused window to monitor 1
-	W-S-F2: Move focused window to monitor 2
-	W-S-a: Shift the window to the left
-	W-S-d: Shift the window to the right
-	W-S-w: Shift the window up
-	W-S-d: Shift the window down
-
-	====================================================
-	Window size changing binds
-	===================================================
-	W-A-e: Enlarge the window in all directions
-	W-C-e: Contract the window in all directions
-	W-A-r: Expand window from top left
-	W-C-r: Contract window from top left
-	W-A-c: Expand window from bottom left
-	W-C-c: Contract window from bottom left
-	W-A-t: Expand window from top right
-	W-C-t: Contract window from top right
-	W-A-v: Expand window from bot right
-	W-C-v: Contract window from bot right
-	W-A-a: Expand window from the left edge
-	W-C-a: Contract window from the left edge
-	W-A-w: Expand window from the top edge
-	W-C-w: Contract window from the top edge
-	W-A-d: Expand window from the right edge
-	W-C-d: Contract window from the right edge
-	W-A-s: Expand window from the bot edge
-	W-C-s: Contract window from the bot edge
--->
+	W-S-F1: Move the window under focus to the monitor 1
+	W-S-F2: Move the window under focus to the monitor 2
+    -->
     <keybind key="W-S-F1">
       <action name="If">
         <query target="focus">
-          <maximized>yes</maximized>
           <monitor>2</monitor>
         </query>
         <then>
-          <action name="Unmaximize"/>
-          <action name="MoveResizeTo">
-            <monitor> 1 </monitor>
-          </action>
-          <action name="Maximize"/>
-        </then>
-        <else>
-          <action name="MoveResizeTo">
-            <monitor> 1 </monitor>
-          </action>
-        </else>
+	  <action name="If">
+	    <query>
+	      <maximized>yes</maximized>
+	    </query>
+	    <then>
+              <action name="Unmaximize"/>
+              <action name="MoveResizeTo">
+		<monitor>1</monitor>
+              </action>
+              <action name="Maximize"/>
+	    </then>
+            <else>
+              <action name="MoveResizeTo">
+		<monitor>1</monitor>
+              </action>
+            </else>
+	  </action>
+	</then>
       </action>
     </keybind>
     <keybind key="W-S-F2">
       <action name="If">
         <query target="focus">
-          <maximized>yes</maximized>
-          <monitor> 1 </monitor>
+          <monitor>1</monitor>
         </query>
         <then>
-          <action name="Unmaximize"/>
-          <action name="MoveResizeTo">
-            <monitor> 2 </monitor>
-          </action>
-          <action name="Maximize"/>
-        </then>
-        <else>
-          <action name="MoveResizeTo">
-            <monitor>2</monitor>
-          </action>
-        </else>
+	  <action name="If">
+	    <query>
+	      <maximized>yes</maximized>
+	    </query>
+	    <then>
+	      <action name="Unmaximize"/>
+              <action name="MoveResizeTo">
+		<monitor>2</monitor>
+              </action>
+              <action name="Maximize"/>
+            </then>
+            <else>
+              <action name="MoveResizeTo">
+		<monitor>2</monitor>
+              </action>
+            </else>
+	  </action>
+	</then>
       </action>
     </keybind>
     <!-- keybindings for window snapping. These work on the current monitor the window is on -->
     <!--
 	W-S-Return: Toggle Maximize
 	W-S-c: snap the focused window to the center of the monitor and resize 50%, 50%.
-	W-S-h: snap the focused window to the left, resize 50% width, 100% of height
-	W-S-l: snap the focused window to the right, resize 50% width, 100% of height
-	W-S-j: snap the focused window to the bot 1/2
-	W-S-k: snap the focused window to the top 1/2
-	W-A-h: snap the focused window the top left
-	W-A-l: snap the focused window the top right
-	W-C-h: snap the focused window the bot left
-	W-C-l: snap the focused window the bot right
     -->
     <keybind key="W-S-c">
       <action name="Unmaximize"/>
@@ -487,24 +414,6 @@
     </keybind>
     <!-- Keybindings for running applications -->
     <!-- #TODO: redo a lot of these -->
-    <keybind key="W-c">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Cortile</name>
-        </startupnotify>
-        <command>cortile</command>
-      </action>
-    </keybind>
-    <keybind key="W-C-c">
-      <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>Stop Cortile</name>
-        </startupnotify>
-        <command>pkill cortile</command>
-      </action>
-    </keybind>
     <keybind key="W-e">
       <action name="Execute">
         <startupnotify>
@@ -544,7 +453,7 @@
         <command>st</command>
       </action>
     </keybind>
-    <!-- TODO: Make my own applicatoin runner, with icons and everything! -->
+    <!-- TODO: Replace with a menu -->
     <keybind key="W-r">
       <action name="Execute">
         <startupnotify>
@@ -597,6 +506,52 @@
       <action name="Execute">
         <!-- source:  scrot -l style=dash -s -f -e 'notify-send \-\-expire-time=3500 \-\-icon=emblem-photos "Saved Screenshot" "to clipboard"' - | xclip -t image/png -i -selection clip -->
         <command> ~/Scripts/scrot_save_sel_to_clipboard.sh</command>
+      </action>
+    </keybind>
+    <!-- keybindings for media keys -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute">
+	<command> amixer set Master 5%+ </command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute">
+	<command> amixer set Master 5%- </command>
+      </action>
+    </keybind>
+    <keybind key="C-XF86AudioRaiseVolume">
+      <action name="Execute">
+	<command> amixer set Master 1%+ </command>
+      </action>
+    </keybind>
+    <keybind key="C-XF86AudioLowerVolume">
+      <action name="Execute">
+	<command> amixer set Master 1%- </command>
+      </action>
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute">
+	<command> amixer set Master toggle </command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute">
+	<command> xbacklight +5 </command>
+      </action>
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute">
+	<command> xbacklight -5 </command>
+      </action>
+    </keybind>
+    <keybind key="C-XF86MonBrightnessUp">
+      <action name="Execute">
+	<command> xbacklight +1 </command>
+      </action>
+    </keybind>
+    <keybind key="C-XF86MonBrightnessDown">
+      <action name="Execute">
+	<command> xbacklight -1 </command>
       </action>
     </keybind>
   </keyboard>
@@ -888,6 +843,7 @@
     </context>
   </mouse>
   <menu>
+    <!-- TODO REMOVE THESE COMMENTS NOOBDISH -->
     <!-- You can specify more than one menu file in here and they are all loaded,
        just don't make menu ids clash or, well, it'll be kind of pointless -->
     <!-- default menu file (or custom one in $HOME/.config/openbox/) -->
