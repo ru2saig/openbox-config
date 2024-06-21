@@ -6,38 +6,18 @@
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
-    <!-- always try to focus new windows when they appear. other rules do
-       apply -->
     <followMouse>no</followMouse>
-    <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
-    <!-- focus the last used window when changing desktops, instead of the one
-       under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
-    <!-- move focus under the mouse, even when the mouse is not moving -->
     <focusDelay>200</focusDelay>
-    <!-- when followMouse is enabled, the mouse must be inside the window for
-       many milliseconds (1000 = 1 sec) before moving focus to it -->
     <raiseOnFocus>no</raiseOnFocus>
-    <!-- when followMouse is enabled, and a window is given focus by moving the
-       mouse into it, also raise the window -->
   </focus>
   <placement>
     <policy>Smart</policy>
-    <!-- 'Smart' or 'UnderMouse' -->
     <center>yes</center>
-    <!-- whether to place windows in the center of the free area found or
-       the top left corner -->
     <monitor>Active</monitor>
-    <!-- with Smart placement on a multi-monitor system, try to place new windows
-       on: 'Any' - any monitor, 'Mouse' - where the mouse is, 'Active' - where
-       the active window is, 'Primary' - only on the primary monitor -->
+    <!-- All the keybindings and mousebindings assume a dual-monitor setup -->
     <primaryMonitor>1</primaryMonitor>
-    <!-- The monitor where Openbox should place popup dialogs such as the
-       focus cycling popup, or the desktop switch popup.  It can be an index
-       from 1, specifying a particular monitor.  Or it can be one of the
-       following: 'Mouse' - where the mouse is, or
-                  'Active' - where the active window is -->
   </placement>
   <theme>
     <name>Arc-Darker</name>
@@ -46,68 +26,42 @@
     <font place="ActiveWindow">
       <name>JetBrains Semi-Bold</name>
       <size>8</size>
-      <!-- font size in points -->
       <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
       <name>JetBrains Semi-Bold Oblique</name>
       <size>8</size>
-      <!-- font size in points -->
       <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
       <name>JetBrains</name>
       <size>11</size>
-      <!-- font size in points -->
       <weight>Bold</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
       <name>JetBrains</name>
       <size>11</size>
-      <!-- font size in points -->
       <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>JetBrains Semi-Bold</name>
       <size>9</size>
-      <!-- font size in points -->
       <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>JetBrains Semi-Bold</name>
       <size>9</size>
-      <!-- font size in points -->
       <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <titleLayout>NLIMC</titleLayout>
   </theme>
   <desktops>
-    <!-- this stuff is only used at startup, pagers allow you to change them
-       during a session
-
-       these are default values to use when other ones are not already set
-       by other applications, or saved in your session
-
-       use obconf if you want to change these without having to log out
-       and back in -->
     <number>8</number>
     <firstdesk>1</firstdesk>
     <names>
@@ -121,29 +75,16 @@
       <name>ᛏ</name>
     </names>
     <popupTime>875</popupTime>
-    <!-- The number of milliseconds to show the popup for when switching
-       desktops.  Set this to 0 to disable the popup. -->
   </desktops>
   <resize>
     <drawContents>yes</drawContents>
     <popupShow>Always</popupShow>
-    <!-- 'Always', 'Never', or 'Nonpixel' (xterms and such) -->
     <popupPosition>Center</popupPosition>
-    <!-- 'Center', 'Top', or 'Fixed' -->
     <popupFixedPosition>
-      <!-- these are used if popupPosition is set to 'Fixed' -->
       <x>center</x>
-      <!-- positive number for distance from left edge, negative number for
-         distance from right edge, or 'Center' -->
       <y>center</y>
-      <!-- positive number for distance from top edge, negative number for
-         distance from bottom edge, or 'Center' -->
     </popupFixedPosition>
   </resize>
-  <!-- You can reserve a portion of your screen where windows will not cover when
-     they are maximized, or when they are initially placed.
-     Many programs reserve space automatically, but you can use this in other
-     cases. -->
   <margins>
     <top>0</top>
     <bottom>0</bottom>
@@ -152,21 +93,15 @@
   </margins>
   <dock>
     <position>Top</position>
-    <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
     <noStrut>no</noStrut>
     <stacking>Above</stacking>
-    <!-- 'Above', 'Normal', or 'Below' -->
     <direction>Horizontal</direction>
-    <!-- 'Vertical' or 'Horizontal' -->
     <autoHide>no</autoHide>
     <hideDelay>300</hideDelay>
-    <!-- in milliseconds (1000 = 1 second) -->
     <showDelay>300</showDelay>
-    <!-- in milliseconds (1000 = 1 second) -->
     <moveButton>Middle</moveButton>
-    <!-- 'Left', 'Middle', 'Right' -->
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
@@ -271,9 +206,35 @@
     <!-- TOOD: Add a menu for directory traversal -->
     <!-- TODO: Add a menu for power options -->
     <!-- TODO: Add a menu for accessing things I use a lot quickly (scripts) -->
+    <!-- Keybindings for window layouts. The most n recently used windows will be split on the monitor of the window that the incantation was called upon.
 	 
-    <!-- Keybindings for window switching. Assumes a dual monitor setup -->
-    <!-- Switches to next window, but through the windows on the current monitor first. -->
+	 W-C-1: Splits the 2 most recent windows of the current monitors in a 50-50 split. Ensure there are at least 2 on the monitor!
+	 W-C-2:
+	 W-C-3:
+	 W-C-4:
+    -->
+    <keybind key="W-C-1">
+      <!-- The If is to ensure that the windows are split on the monitor that has the focussed window -->
+      <action name="If">
+	<query target="focus">
+	  <monitor>2</monitor>
+	  <desktop>current</desktop>
+	</query>
+	<then>
+
+
+	</then>
+	<else>
+
+	  
+	</else>
+      </action>
+    </keybind>
+    
+    <!-- Keybindings for window switching.
+	 W-n: Switches to the next window; but starting from the windows on the monitor of the window that had focus when the incantation was run.
+	 W-p: Previous window
+    -->
     <keybind key="W-n">
       <action name="If">
 	<query target="focus">
