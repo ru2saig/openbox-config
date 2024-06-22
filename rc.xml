@@ -548,9 +548,51 @@ These split for the 3 or 4 windows on the same monitor. Focus stays on the windo
     <!-- Keybindings for window switching.
 	 W-n: Switches to the next window; but starting from the windows on the monitor of the window that had focus when the incantation was uttered.
 	 W-p: Previous window
-	 W-s: Switches to the active window on the other monitor
-	 TODO: Directional movements, and monitor switching!
+	 TODO W-s: Switches to the active window on the other monitor
+
+These work off when the window in the specified direction is on another monitor, where there are several maximized windows in the direction; the first added window on that monitor will be selected. This is not what usually I would expect to happen; the visible window should be focussed. For that, use W-s. But, the following shortcuts work as I expect when there is no "visible" contention for which window to choose on the other monitor.
+       
+	 W-k: Move visible focus to the window in the north
+	 W-j: Move visible focus to the window below the current one
+	 W-h: Move visible focus to the window to the left of the current one
+	 W-l: Move visible focus to the window to the right of the current one
     -->
+    <keybind key="W-h">
+      <action name="DirectionalTargetWest">
+	<finalactions>
+	  <action name="Focus"/>
+	  <action name="Raise"/>
+	  <action name="Unshade"/>
+	</finalactions>
+      </action>
+    </keybind>
+    <keybind key="W-l">
+      <action name="DirectionalTargetEast">
+	<finalactions>
+	  <action name="Focus"/>
+	  <action name="Raise"/>
+	  <action name="Unshade"/>
+	</finalactions>
+      </action>
+    </keybind>
+    <keybind key="W-k">
+      <action name="DirectionalTargetNorth">
+	<finalactions>
+	  <action name="Focus"/>
+	  <action name="Raise"/>
+	  <action name="Unshade"/>
+	</finalactions>
+      </action>
+    </keybind>
+    <keybind key="W-j">
+      <action name="DirectionalTargetSouth">
+	<finalactions>
+	  <action name="Focus"/>
+	  <action name="Raise"/>
+	  <action name="Unshade"/>
+	</finalactions>
+      </action>
+    </keybind>
     <keybind key="W-n">
       <action name="If">
 	<query target="focus">
@@ -672,7 +714,7 @@ These split for the 3 or 4 windows on the same monitor. Focus stays on the windo
     <!-- keybindings for window snapping. These work on the current monitor the window is on -->
     <!--
 	W-S-Return: Toggle Maximize
-	W-S-c: snap the focused window to the center of the monitor and resize 50%, 50%.
+	W-S-c: snap the focussed window to the center of the monitor and resize 50%, 50%.
     -->
     <keybind key="W-S-c">
       <action name="Unmaximize"/>
