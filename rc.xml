@@ -201,20 +201,18 @@
     <keybind key="A-F4">
       <action name="Close"/>
     </keybind>
+    <!-- Keybindings for window layouts.
 
-    <!-- TODO: Add a menu for launching applications -->
-    <!-- TOOD: Add a menu for directory traversal -->
-    <!-- TODO: Add a menu for power options -->
-    <!-- TODO: Add a menu for accessing things I use a lot quickly (scripts) -->
-    <!-- Keybindings for window layouts. The n recently used windows will be split on the monitor of the window that an incantation is called upon (including the focussed window). Assumes that these n windows are all on the same monitor. If they're not, weird stuff happen!
-
-	 W-C-1: Splits the 2 most recent windows in a 50-50 split. Gives focus to the "selected" window, which is placed on the left
-	 W-C-2: Splits the 2 most recent windows in a 50-50 split. Puts the "selected" window on the right, and focus is left on the "selection" started on.
-	 W-C-3: Splits with first window on the right, other 2 vertical split 50% width
-	 W-C-4: Splits into 4.
-	 W-C-5:
+Make sure the windows to split are on the same monitor, or weird stuff happens. "Select" the window to split with by giving it focus.
+	 W-C-1: Splits the 2 most recent windows in a 50-50 split. Gives focus to the "selected" window, which is placed on the left.
+	 W-C-2: Splits the 2 most recent windows in a 50-50 split. Puts the "selected" window on the right, and focus remains on the window "selected" from, which is put on the left.
+	 
+These split for the 3 or 4 windows on the same monitor. Focus stays on the window that the keybind happend on. Make sure there are enough windows on the monitor the incantation with the focussed window is called on. Or weird stuff happens. Works best with exactley the number split for.
+	 W-C-3: Splits with first window on the left, other 2 vertical split 50% height and width on the right
+	 W-C-4: Splits 4 windows equally in each corner of the monitor
+	 W-C-5: Splits with first window on the right, other 2 vertical split 50% height and width on the left
+	 W-space: Maximize all the windows on the current monitor (where the focussed window is)
     -->
-    <!-- Select what window to split with by visiting it before running this keybind, from the other window to split with. -->
     <keybind key="W-C-1">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
@@ -232,7 +230,7 @@
 	<finalactions>
 	  <action name="Unmaximize"/>
 	  <action name="MoveResizeTo">
-	    <x>50%</x>
+	    <x>-0</x>
 	    <y>0</y>
 	    <width>50%</width>
 	    <height>100%</height>
@@ -246,7 +244,7 @@
     <keybind key="W-C-2">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
-	<x>50%</x>
+	<x>-0</x>
 	<y>0</y>
 	<width>50%</width>
 	<height>100%</height>
@@ -276,10 +274,282 @@
 	<interactive>no</interactive>
       </action>
     </keybind>
-    
+    <keybind key="W-C-3">
+      <!-- "Sorting" the windows, so that the next part gets the right windows. -->
+      <action name="If">
+	<query target="focus">
+	  <monitor>2</monitor>
+	  <desktop>current</desktop>
+	</query>
+	<then>
+	  <action name="ForEach">
+            <query>
+	      <monitor>1</monitor>
+              <desktop>current</desktop>
+            </query>
+            <then>
+	      <action name="Unfocus"/>
+	      <action name="FocusToBottom"/>
+	    </then>
+	  </action>
+	</then>
+	<else>
+	  <action name="ForEach">
+            <query>
+	      <monitor>2</monitor>
+              <desktop>current</desktop>
+            </query>
+            <then>
+	      <action name="Unfocus"/>
+	      <action name="FocusToBottom"/>
+	    </then>
+	  </action>
+	</else>
+      </action>
+
+      <!-- Put the windows in their corners -->
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+        <monitor>current</monitor>
+      </action>
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>yes</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="FocusToBottom"/>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>0</y>
+            <width>50%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+	</finalactions>
+      </action>
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>yes</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="FocusToBottom"/>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>-0</y>
+            <width>50%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+	</finalactions>
+      </action>            
+    </keybind>
+    <keybind key="W-C-5">
+      <!-- "Sorting" the windows, so that the next part gets the right windows. -->
+      <action name="If">
+	<query target="focus">
+	  <monitor>2</monitor>
+	  <desktop>current</desktop>
+	</query>
+	<then>
+	  <action name="ForEach">
+            <query>
+	      <monitor>1</monitor>
+              <desktop>current</desktop>
+            </query>
+            <then>
+	      <action name="Unfocus"/>
+	      <action name="FocusToBottom"/>
+	    </then>
+	  </action>
+	</then>
+	<else>
+	  <action name="ForEach">
+            <query>
+	      <monitor>2</monitor>
+              <desktop>current</desktop>
+            </query>
+            <then>
+	      <action name="Unfocus"/>
+	      <action name="FocusToBottom"/>
+	    </then>
+	  </action>
+	</else>
+      </action>
+
+      <!-- Put the windows in their corners -->
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>-0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>100%</height>
+        <monitor>current</monitor>
+      </action>
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>yes</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="FocusToBottom"/>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>0</y>
+            <width>50%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+	</finalactions>
+      </action>
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>yes</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="FocusToBottom"/>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>-0</y>
+            <width>50%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+	</finalactions>
+      </action>            
+    </keybind>
+    <keybind key="W-space">
+      <action name="If">
+	<query target="focus">
+	  <monitor>1</monitor>
+	  <desktop>current</desktop>
+	</query>
+	<then>
+	  <action name="ForEach">
+            <query>
+	      <monitor>1</monitor>
+              <desktop>current</desktop>
+            </query>
+            <then>
+	      <action name="Maximize"/>
+	    </then>
+	  </action>
+	</then>
+	<else>
+	  <action name="ForEach">
+            <query>
+	      <monitor>2</monitor>
+              <desktop>current</desktop>
+            </query>
+            <then>
+	      <action name="Maximize"/>
+	    </then>
+	  </action>
+	</else>
+      </action>
+    </keybind>
+    <keybind key="W-C-4">
+      <!-- "Sorting" the windows, so that the next part gets the right windows. -->
+      <action name="If">
+	<query target="focus">
+	  <monitor>2</monitor>
+	  <desktop>current</desktop>
+	</query>
+	<then>
+	  <action name="ForEach">
+            <query>
+	      <monitor>1</monitor>
+              <desktop>current</desktop>
+            </query>
+            <then>
+	      <action name="Unfocus"/>
+	      <action name="FocusToBottom"/>
+	    </then>
+	  </action>
+	</then>
+	<else>
+	  <action name="ForEach">
+            <query>
+	      <monitor>2</monitor>
+              <desktop>current</desktop>
+            </query>
+            <then>
+	      <action name="Unfocus"/>
+	      <action name="FocusToBottom"/>
+	    </then>
+	  </action>
+	</else>
+      </action>
+
+      <!-- Put the windows in their corners, clockwise -->
+      <action name="Unmaximize"/>
+      <action name="MoveResizeTo">
+        <x>0</x>
+        <y>0</y>
+        <width>50%</width>
+        <height>50%</height>
+        <monitor>current</monitor>
+      </action>
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>yes</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="FocusToBottom"/>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>0</y>
+            <width>50%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+	</finalactions>
+      </action>
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>yes</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="FocusToBottom"/>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>-0</x>
+            <y>-0</y>
+            <width>50%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+	</finalactions>
+      </action>
+      <action name="NextWindow">
+	<dialog>none</dialog>
+	<raise>yes</raise>
+	<interactive>no</interactive>
+	<finalactions>
+	  <action name="FocusToBottom"/>
+          <action name="Unmaximize"/>
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>-0</y>
+            <width>50%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+	</finalactions>
+      </action>
+    </keybind>
     <!-- Keybindings for window switching.
 	 W-n: Switches to the next window; but starting from the windows on the monitor of the window that had focus when the incantation was uttered.
 	 W-p: Previous window
+	 W-s: Switches to the active window on the other monitor
+	 TODO: Directional movements, and monitor switching!
     -->
     <keybind key="W-n">
       <action name="If">
