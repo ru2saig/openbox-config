@@ -202,18 +202,21 @@
       <action name="Close"/>
     </keybind>
     <!-- Keybindings for window layouts.
-
-Make sure the windows to split are on the same monitor, or weird stuff happens. "Select" the window to split with by giving it focus.
-	 W-C-1: Splits the 2 most recent windows in a 50-50 split. Gives focus to the "selected" window, which is placed on the left.
-	 W-C-2: Splits the 2 most recent windows in a 50-50 split. Puts the "selected" window on the right, and focus remains on the window "selected" from, which is put on the left.
 	 
-These split for the 3 or 4 windows on the same monitor. Focus stays on the window that the keybind happend on. Make sure there are enough windows on the monitor the incantation with the focussed window is called on. Or weird stuff happens. Works best with exactley the number split for.
-	 W-C-3: Splits with first window on the left, other 2 vertical split 50% height and width on the right
+	 Make sure the windows to split are on the same monitor, or weird stuff happens. "Select" the window to split with by giving it focus.
+	 
+	 W-C-1: Splits the 2 most recent windows in a 50-50 split. Puts the "selected" window on the right, and focus remains on the window "selected" from, which is put on the left.
+	 W-C-2: Splits the 2 most recent windows in a 50-50 split. Gives focus to the "selected" window, which is placed on the left.
+	 
+	 These split for the 3 or 4 windows on the same monitor. Focus stays on the window that the keybind happend on.
+	 Make sure there are enough windows on the monitor the incantation with the focussed window is called on. Or weird stuff happens. Works best with exactley the number split for.
+	 
+         W-C-3: Splits with first window on the left, other 2 vertical split 50% height and width on the right
 	 W-C-4: Splits 4 windows equally in each corner of the monitor
 	 W-C-5: Splits with first window on the right, other 2 vertical split 50% height and width on the left
 	 W-space: Maximize all the windows on the current monitor (where the focussed window is)
     -->
-    <keybind key="W-C-1">
+    <keybind key="W-C-2">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
 	<x>0</x>
@@ -241,7 +244,7 @@ These split for the 3 or 4 windows on the same monitor. Focus stays on the windo
 
       <action name="Focus"/>
     </keybind>
-    <keybind key="W-C-2">
+    <keybind key="W-C-1">
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
 	<x>-0</x>
