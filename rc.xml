@@ -713,7 +713,7 @@ These work off when the window in the specified direction is on another monitor,
     </keybind>
     <!-- keybindings for window snapping. These work on the current monitor the window is on -->
     <!--
-	W-S-Return: Toggle Maximize
+	W-Return: Toggle Maximize
 	W-S-c: snap the focussed window to the center of the monitor and resize 50%, 50%.
     -->
     <keybind key="W-S-c">
@@ -726,7 +726,7 @@ These work off when the window in the specified direction is on another monitor,
         <monitor>current</monitor>
       </action>
     </keybind>
-    <keybind key="W-S-Return">
+    <keybind key="W-Return">
       <action name="ToggleMaximize">
         <direction> both </direction>
       </action>
