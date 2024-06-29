@@ -1190,6 +1190,17 @@ These work off when the window in the specified direction is on another monitor,
 	 All new applications will have no decorations and appear in the center. 
 	 keeps things neat
     -->
+    <application type="splash">
+      <position force="yes">
+	<x>center</x>
+	<y>center</y>
+	<monitor>mouse</monitor>
+      </position>
+    </application>
+    <application name="kicad">
+      <maximized>yes</maximized>
+      <fullscreen>yes</fullscreen>
+    </application>
     <application name="gl">
       <maximized>yes</maximized>
       <fullscreen>yes</fullscreen>
@@ -1206,12 +1217,6 @@ These work off when the window in the specified direction is on another monitor,
     </application>
     <application name="thunar">
       <maximized>yes</maximized>
-    </application>
-    <application class="*">
-      <position force="no">
-        <x>center</x>
-        <y>center</y>
-      </position>
     </application>
     <application name="firefox">
       <decor>no</decor>
