@@ -217,6 +217,9 @@
 	 W-space: Maximize all the windows on the current monitor (where the focussed window is)
     -->
     <keybind key="W-C-2">
+      <action name="SendToLayer">
+	<layer>normal</layer>
+      </action>
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
 	<x>0</x>
@@ -245,6 +248,9 @@
       <action name="Focus"/>
     </keybind>
     <keybind key="W-C-1">
+      <action name="SendToLayer">
+	<layer>normal</layer>
+      </action>
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
 	<x>-0</x>
@@ -278,6 +284,9 @@
       </action>
     </keybind>
     <keybind key="W-C-3">
+      <action name="SendToLayer">
+	<layer>normal</layer>
+      </action>
       <!-- "Sorting" the windows, so that the next part gets the right windows. -->
       <action name="If">
 	<query target="focus">
@@ -353,6 +362,9 @@
       </action>            
     </keybind>
     <keybind key="W-C-5">
+      <action name="SendToLayer">
+	<layer>normal</layer>
+      </action>
       <!-- "Sorting" the windows, so that the next part gets the right windows. -->
       <action name="If">
 	<query target="focus">
@@ -428,6 +440,9 @@
       </action>            
     </keybind>
     <keybind key="W-space">
+      <action name="SendToLayer">
+	<layer>normal</layer>
+      </action>
       <action name="If">
 	<query target="focus">
 	  <monitor>1</monitor>
@@ -458,6 +473,9 @@
       </action>
     </keybind>
     <keybind key="W-C-4">
+      <action name="SendToLayer">
+	<layer>normal</layer>
+      </action>
       <!-- "Sorting" the windows, so that the next part gets the right windows. -->
       <action name="If">
 	<query target="focus">
@@ -713,6 +731,9 @@ These work off when the window in the specified direction is on another monitor,
 	W-S-c: snap the focussed window to the center of the monitor and resize 50%, 50%.
     -->
     <keybind key="W-S-c">
+      <action name="SendToLayer">
+	<layer>normal</layer>
+      </action>
       <action name="Unmaximize"/>
       <action name="MoveResizeTo">
         <x>center</x>
@@ -723,6 +744,9 @@ These work off when the window in the specified direction is on another monitor,
       </action>
     </keybind>
     <keybind key="W-Return">
+      <action name="SendToLayer">
+	<layer>normal</layer>
+      </action>
       <action name="ToggleMaximize">
         <direction> both </direction>
       </action>
@@ -883,21 +907,23 @@ These work off when the window in the specified direction is on another monitor,
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
-      <mousebind button="A-Left" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-      </mousebind>
-      <mousebind button="A-Left" action="Click">
-        <action name="Unshade"/>
-      </mousebind>
       <mousebind button="W-Left" action="Drag">
-        <action name="ToggleMaximize"/>
-        <action name="Move"/>
-      </mousebind>
-      <mousebind button="A-Right" action="Press">
-        <action name="Focus"/>
-        <action name="Raise"/>
-        <action name="Unshade"/>
+	<action name="If">
+	  <query>
+	    <maximized>yes</maximized>
+	  </query>
+	  <then>
+            <action name="Unmaximize"/>
+	  </then>
+	</action>
+	<action name="MoveResizeTo">
+	  <width>50%</width>
+	  <height>50%</height>
+	</action>
+	<action name="Move"/>
+	<action name="SendToLayer">
+	  <layer>top</layer>
+	</action>
       </mousebind>
     </context>
     <context name="Titlebar">
