@@ -234,6 +234,9 @@
 	<raise>no</raise>
 	<interactive>no</interactive>
 	<finalactions>
+	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
 	  <action name="Unmaximize"/>
 	  <action name="MoveResizeTo">
 	    <x>-0</x>
@@ -265,6 +268,9 @@
 	<raise>no</raise>
 	<interactive>no</interactive>
 	<finalactions>
+	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
           <action name="Unmaximize"/>
           <action name="MoveResizeTo">
             <x>0</x>
@@ -333,6 +339,9 @@
 	<raise>yes</raise>
 	<interactive>no</interactive>
 	<finalactions>
+	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
 	  <action name="FocusToBottom"/>
           <action name="Unmaximize"/>
           <action name="MoveResizeTo">
@@ -349,6 +358,9 @@
 	<raise>yes</raise>
 	<interactive>no</interactive>
 	<finalactions>
+ 	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
 	  <action name="FocusToBottom"/>
           <action name="Unmaximize"/>
           <action name="MoveResizeTo">
@@ -411,6 +423,9 @@
 	<raise>yes</raise>
 	<interactive>no</interactive>
 	<finalactions>
+	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
 	  <action name="FocusToBottom"/>
           <action name="Unmaximize"/>
           <action name="MoveResizeTo">
@@ -427,6 +442,9 @@
 	<raise>yes</raise>
 	<interactive>no</interactive>
 	<finalactions>
+	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
 	  <action name="FocusToBottom"/>
           <action name="Unmaximize"/>
           <action name="MoveResizeTo">
@@ -440,9 +458,6 @@
       </action>            
     </keybind>
     <keybind key="W-space">
-      <action name="SendToLayer">
-	<layer>normal</layer>
-      </action>
       <action name="If">
 	<query target="focus">
 	  <monitor>1</monitor>
@@ -455,6 +470,9 @@
               <desktop>current</desktop>
             </query>
             <then>
+ 	      <action name="SendToLayer">
+		<layer>normal</layer>
+	      </action>
 	      <action name="Maximize"/>
 	    </then>
 	  </action>
@@ -466,6 +484,9 @@
               <desktop>current</desktop>
             </query>
             <then>
+	      <action name="SendToLayer">
+		<layer>normal</layer>
+	      </action>
 	      <action name="Maximize"/>
 	    </then>
 	  </action>
@@ -522,6 +543,9 @@
 	<raise>yes</raise>
 	<interactive>no</interactive>
 	<finalactions>
+	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
 	  <action name="FocusToBottom"/>
           <action name="Unmaximize"/>
           <action name="MoveResizeTo">
@@ -538,6 +562,9 @@
 	<raise>yes</raise>
 	<interactive>no</interactive>
 	<finalactions>
+	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
 	  <action name="FocusToBottom"/>
           <action name="Unmaximize"/>
           <action name="MoveResizeTo">
@@ -554,6 +581,9 @@
 	<raise>yes</raise>
 	<interactive>no</interactive>
 	<finalactions>
+	  <action name="SendToLayer">
+	    <layer>normal</layer>
+	  </action>
 	  <action name="FocusToBottom"/>
           <action name="Unmaximize"/>
           <action name="MoveResizeTo">
