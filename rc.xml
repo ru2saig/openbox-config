@@ -907,7 +907,7 @@ These work off when the window in the specified direction is on another monitor,
     <!-- Set this to TRUE to move the mouse pointer across the desktop when
        switching due to hitting the edge of the screen -->
     <context name="Frame">
-      <mousebind button="W-Left" action="Drag">
+      <mousebind button="W-Right" action="Drag">
 	<action name="If">
 	  <query>
 	    <maximized>yes</maximized>
