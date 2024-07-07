@@ -599,7 +599,7 @@
     <!-- Keybindings for window switching.
 	 W-n: Switches to the next window; but starting from the windows on the monitor of the window that had focus when the incantation was uttered.
 	 W-p: Previous window
-	 TODO W-s: Switches to the active window on the other monitor
+	 W-s: Switches to the active window on the other monitor
 
 These work off when the window in the specified direction is on another monitor, where there are several overlapping windows in the direction; the first added window on that monitor will be selected. This is not what usually I would expect to happen; I'd want the first visible/most recently focussed window out to be focussed. For that, use W-s. But, the following shortcuts work as I expect when there is no "visible" contention for which window to choose on the other monitor.
        
@@ -609,7 +609,6 @@ These work off when the window in the specified direction is on another monitor,
 	 W-l: Move visible focus to the window to the right of the current one
     -->
     <keybind key="W-h">
-      
       <action name="DirectionalTargetWest">
 	<finalactions>
 	  <action name="Focus"/>
@@ -678,8 +677,8 @@ These work off when the window in the specified direction is on another monitor,
 	</else>
       </action>
       <action name="NextWindow">
-        <raise>no</raise>
-        <dialog>icons</dialog>
+        <raise>no</raise> 
+	<dialog>icons</dialog>
         <finalactions>
 	  <action name="Focus"/>
           <action name="Raise"/>
@@ -696,6 +695,22 @@ These work off when the window in the specified direction is on another monitor,
           <action name="Raise"/>
           <action name="Unshade"/>
         </finalactions>
+      </action>
+    </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+	<command>switch_monitor</command>
+      </action>
+    </keybind>
+    <keybind key="A-Tab">
+      <action name="NextWindow">
+	<raise>no</raise> 
+	<dialog>icons</dialog>
+	<finalactions>
+	  <action name="Focus"/>
+          <action name="Raise"/>
+          <action name="Unshade"/>
+	</finalactions>
       </action>
     </keybind>
     <!-- keybingings for moving and resizing windows -->
