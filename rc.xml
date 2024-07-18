@@ -105,6 +105,9 @@
   </dock>
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
+    <keybind key="C-W-q" chroot="true">
+      <keybind key="C-W-q"><action name="BreakChroot"/></keybind>
+    </keybind>
     <!-- Keybindings for desktop switching -->
     <keybind key="W-S-1">
       <action name="SendToDesktop">
