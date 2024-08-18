@@ -1271,6 +1271,14 @@ These work off when the window in the specified direction is on another monitor,
 	<monitor>mouse</monitor>
       </position>
     </application>
+    <application name="nextcloud">
+      <position force="yes">
+	<x>0</x>
+	<y>-0</y>
+	<monitor>1</monitor>
+      </position>
+      <decor>no</decor>
+    </application>
     <application name="kicad">
       <maximized>yes</maximized>
       <fullscreen>yes</fullscreen>
