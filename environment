@@ -4,7 +4,10 @@ export XDG_CURRENT_DESKTOP=XFCE
 export XDG_DATA_DIRS=/usr/local/share:/usr/share:/var/lib/flatpak/exports/share:/home/ruusaig/.local/share/flatpak/exports/share
 
 # To set your language for displaying messages and time/date formats, use the following:
-LANG=en_IN.UTF8
+export LANG=en_IN.UTF8
 
 # To set your keyboard layout, you need to modify your X config:
 # http://www.google.com/search?q=how+to+set+keyboard+layout+xorg
+
+# https://unix.stackexchange.com/questions/761808/how-to-globally-set-dark-mode-for-gtk-4-apps
+export GTK_THEME=Arc-Dark
