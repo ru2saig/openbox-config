@@ -621,7 +621,8 @@ These work off when the window in the specified direction is on another monitor,
       </action>
     </keybind>
     <keybind key="W-l">
-      <action name="DirectionalTargetEast">
+      <action name="DirectionalTargetWindow">
+	<direction>east</direction>
 	<finalactions>
 	  <action name="Focus"/>
 	  <action name="Raise"/>
@@ -718,10 +719,11 @@ These work off when the window in the specified direction is on another monitor,
     </keybind>
     <!-- keybingings for moving and resizing windows -->
     <!--
+	TODO: What's that BIOS setting?
 	W-S-F1: Move the window under focus to the monitor 1
 	W-S-F2: Move the window under focus to the monitor 2
     -->
-    <keybind key="W-S-F1">
+    <keybind key="W-S-XF86AudioMute">
       <action name="If">
         <query target="focus">
           <monitor>2</monitor>
@@ -747,7 +749,7 @@ These work off when the window in the specified direction is on another monitor,
 	</then>
       </action>
     </keybind>
-    <keybind key="W-S-F2">
+    <keybind key="W-S-XF86AudioLowerVolume">
       <action name="If">
         <query target="focus">
           <monitor>1</monitor>
@@ -939,6 +941,11 @@ These work off when the window in the specified direction is on another monitor,
     <keybind key="C-XF86MonBrightnessDown">
       <action name="Execute">
 	<command> xbacklight -1 </command>
+      </action>
+    </keybind>
+    <keybind key="C-XF86Tools">
+      <action name="Execute">
+	<command> systemctl suspend </command>
       </action>
     </keybind>
   </keyboard>
@@ -1281,7 +1288,6 @@ These work off when the window in the specified direction is on another monitor,
     </application>
     <application name="kicad">
       <maximized>yes</maximized>
-      <fullscreen>yes</fullscreen>
     </application>
     <application name="gl">
       <maximized>yes</maximized>
