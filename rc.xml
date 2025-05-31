@@ -201,7 +201,7 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows and menus -->
-    <keybind key="A-F4">
+    <keybind key="W-F4">
       <action name="Close"/>
     </keybind>
     <!-- Keybindings for window layouts.
@@ -648,6 +648,9 @@ These work off when the window in the specified direction is on another monitor,
 	</finalactions>
       </action>
     </keybind>
+    <keybind key="W-b">
+      <action name="Iconify"/>
+    </keybind>
     <keybind key="W-n">
       <!-- Essentially, get the windows on the current monitor focssused first, to switch more intuitively, by pushing all the other monitor focusses to the bottom. -->
       <action name="If">
@@ -668,7 +671,7 @@ These work off when the window in the specified direction is on another monitor,
 	  </action>
 	</then>
 	<else>
-	  <action name="ForEach">
+          <action name="ForEach">
             <query>
 	      <monitor>2</monitor>
               <desktop>current</desktop>
@@ -833,13 +836,143 @@ These work off when the window in the specified direction is on another monitor,
         <command>firefox</command>
       </action>
     </keybind>
-    <keybind key="C-A-t">
+    <keybind key="W-A-t">
       <action name="Execute">
-        <startupnotify>
-          <enabled>true</enabled>
-          <name>terminal-emulator</name>
-        </startupnotify>
         <command>st</command>
+      </action>
+    </keybind>
+    <keybind key="W-A-1">
+      <action name="If">
+	<query target="focus">
+          <title>st</title>
+          <class>xterm-256color</class>
+        </query>
+        <then>
+          <action name="Unmaximize"/>          
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>0</y>
+            <width>50%</width>
+            <height>100%</height>
+            <monitor>current</monitor>
+          </action>
+          <action name="Execute">
+            <command>st -n right -c terminal-split</command>
+          </action>
+        </then>
+        <else>
+          <action name="Execute">
+            <command>st -n left -c terminal-split</command>
+          </action>
+          <action name="Execute">
+            <command>st -n right -c terminal-split</command>
+          </action>
+        </else>
+      </action>
+    </keybind>
+    <keybind key="W-A-2">
+      <action name="If">
+	<query target="focus">
+          <title>st</title>
+          <class>xterm-256color</class>
+        </query>
+        <then>
+          <action name="Unmaximize"/>          
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>-0</y>
+            <width>100%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+          <action name="Execute">
+            <command>st -n top -c terminal-split</command>
+          </action>
+        </then>
+        <else>
+          <action name="Execute">
+            <command>st -n bot -c terminal-split</command>
+          </action>
+          <action name="Execute">
+            <command>st -n top -c terminal-split</command>
+          </action>
+        </else>
+      </action>
+    </keybind>
+    <keybind key="W-A-3">
+      <action name="If">
+	<query target="focus">
+          <title>st</title>
+          <class>xterm-256color</class>
+        </query>
+        <then>
+          <action name="Unmaximize"/>          
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>0</y>
+            <width>50%</width>
+            <height>100%</height>
+            <monitor>current</monitor>
+          </action>
+          <action name="Execute">
+            <command>st -n bot-right -c terminal-split</command>
+          </action>
+          <action name="Execute">
+            <command>st -n top-right -c terminal-split</command>
+          </action>
+        </then>
+        <else>
+          <action name="Execute">
+            <command>st -n left -c terminal-split</command>
+          </action>          
+          <action name="Execute">
+            <command>st -n bot-right -c terminal-split</command>
+          </action>
+          <action name="Execute">
+            <command>st -n top-right -c terminal-split</command>
+          </action>
+        </else>
+      </action>
+    </keybind>
+    <keybind key="W-A-4">
+      <action name="If">
+	<query target="focus">
+          <title>st</title>
+          <class>xterm-256color</class>
+        </query>
+        <then>
+          <action name="Unmaximize"/>          
+          <action name="MoveResizeTo">
+            <x>0</x>
+            <y>0</y>
+            <width>50%</width>
+            <height>50%</height>
+            <monitor>current</monitor>
+          </action>
+          <action name="Execute">
+            <command>st -n bot-left -c terminal-split</command>
+          </action>                    
+          <action name="Execute">
+            <command>st -n bot-right -c terminal-split</command>
+          </action>
+          <action name="Execute">
+            <command>st -n top-right -c terminal-split</command>
+          </action>
+        </then>
+        <else>
+          <action name="Execute">
+            <command>st -n top-left -c terminal-split</command>
+          </action>
+          <action name="Execute">
+            <command>st -n bot-left -c terminal-split</command>
+          </action>
+          <action name="Execute">
+            <command>st -n bot-right -c terminal-split</command>
+          </action>
+          <action name="Execute">
+            <command>st -n top-right -c terminal-split</command>
+          </action>
+        </else>
       </action>
     </keybind>
     <!-- TODO: Replace with a menu -->
@@ -1299,9 +1432,114 @@ These work off when the window in the specified direction is on another monitor,
       <fullscreen>yes</fullscreen>
       <maximized>yes</maximized>
     </application>
-    <application name="xterm-256color">
+    <application name="xterm-256color"> <!-- $TERM, what st uses by default -->
       <decor>no</decor>
       <maximized>yes</maximized>
+8    </application>
+    <!-- Placement for terminals -->
+    <application name="right"
+                 class="terminal-split">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <position force="yes">
+        <x>-0</x>
+        <y>0</y>
+      </position>
+      <size>
+        <width>50%</width>
+        <height>100%</height>
+      </size>
+    </application>
+    <application name="left"
+                 class="terminal-split">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <position force="yes">
+        <x>0</x>
+        <y>0</y>
+      </position>
+      <size>
+        <width>50%</width>
+        <height>100%</height>
+      </size>
+    </application>
+    <application name="bot"
+                 class="terminal-split">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <position force="yes">
+        <x>0</x>
+        <y>-0</y>
+      </position>
+      <size>
+        <width>100%</width>
+        <height>50%</height>
+      </size>
+    </application>
+    <application name="top"
+                 class="terminal-split">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <position force="yes">
+        <x>0</x>
+        <y>0</y>
+      </position>
+      <size>
+        <width>100%</width>
+        <height>50%</height>
+      </size>
+    </application>
+    <application name="top-right"
+                 class="terminal-split">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <position force="yes">
+        <x>-0</x>
+        <y>0</y>
+      </position>
+      <size>
+        <width>50%</width>
+        <height>50%</height>
+      </size>
+    </application>
+    <application name="bot-right"
+                 class="terminal-split">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <position force="yes">
+        <x>-0</x>
+        <y>-0</y>
+      </position>
+      <size>
+        <width>50%</width>
+        <height>50%</height>
+      </size>
+    </application>
+    <application name="bot-left"
+                 class="terminal-split">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <position force="yes">
+        <x>0</x>
+        <y>-0</y>
+      </position>
+      <size>
+        <width>50%</width>
+        <height>50%</height>
+      </size>
+    </application>
+    <application name="top-left"
+                 class="terminal-split">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <position force="yes">
+        <x>0</x>
+        <y>0</y>
+      </position>
+      <size>
+        <width>50%</width>
+        <height>50%</height>
+      </size>
     </application>
     <application name="thunar">
       <maximized>yes</maximized>
