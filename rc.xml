@@ -836,6 +836,15 @@ These work off when the window in the specified direction is on another monitor,
         <command>firefox</command>
       </action>
     </keybind>
+    <!-- A collection of shortcuts to handle the terminal
+         W-A-t: Launch a new instance of a terminal
+         W-A-1: Split the monitor horizontally with 2 terminal instances. If called on an existing terminal instance, it's used as the left-most one
+         W-A-2: Make two terminal instances top and bot, the monitor is horizontally split. If called on an existing terminal instance, it's used as the bottom on
+         W-A-3: Make 3 terminal instances, left one takes 1/2 the area, and the right ones take 1/4 of the area each, stacked top and bottom on the right side of the monitor. If called on an existing terminal instance, it's used as the left-most one
+         W-A-4: Make 4 terminal instances, of equal area. If called on an existing terminal instance, put it on the top-left corner
+         W-A-q: Toggle a quake-like terminal on top of the monitor.
+                The first time it's created, it'll stay on that monitor each time it's toggled. To get to the other monitor, just shift it or exit+recreate (whe using different resolution monitors)
+    -->
     <keybind key="W-A-t">
       <action name="Execute">
         <command>st</command>
@@ -971,6 +980,22 @@ These work off when the window in the specified direction is on another monitor,
           </action>
           <action name="Execute">
             <command>st -n top-right -c terminal-split</command>
+          </action>
+        </else>
+      </action>
+    </keybind>
+    <keybind key="W-A-q">
+      <action name="If">
+        <query target="focus">
+          <desktop>current</desktop>
+          <class>popup-terminal</class>
+        </query>
+        <then> <!-- 'Close' it -->
+          <action name="Iconify"/>
+        </then>
+        <else> <!-- Otherwise switch to it, or if it doesn't exist, create it. -->
+          <action name="Execute"> <!-- PID is replaced with clients PID internally, so EXEC instead -->
+            <command>bash -c 'EXEC=$(xdotool search --class popup-terminal); if [[ "$EXEC" -ne 0 ]]; then wmctrl -ia "$EXEC"; else (st -c popup-terminal -n popup-terminal &amp;); fi'</command>
           </action>
         </else>
       </action>
@@ -1540,6 +1565,23 @@ These work off when the window in the specified direction is on another monitor,
         <width>50%</width>
         <height>50%</height>
       </size>
+    </application>
+    <application name="popup-terminal"
+                 class="popup-terminal">
+      <decor>no</decor>
+      <focus>yes</focus>
+      <desktop>all</desktop>
+      <position force="yes">
+        <x>0</x>
+        <y>0</y>
+      </position>
+      <size>
+        <width>100%</width>
+        <height>33%</height>
+      </size>
+      <layer>above</layer>
+      <skip_pager>yes</skip_pager>
+      <skip_taskbar>yes</skip_taskbar>
     </application>
     <application name="thunar">
       <maximized>yes</maximized>
