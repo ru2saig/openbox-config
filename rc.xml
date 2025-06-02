@@ -993,9 +993,20 @@ These work off when the window in the specified direction is on another monitor,
         <then> <!-- 'Close' it -->
           <action name="Iconify"/>
         </then>
-        <else> <!-- Otherwise switch to it, or if it doesn't exist, create it. -->
-          <action name="Execute"> <!-- PID is replaced with clients PID internally, so EXEC instead -->
-            <command>bash -c 'EXEC=$(xdotool search --class popup-terminal); if [[ "$EXEC" -ne 0 ]]; then wmctrl -ia "$EXEC"; else (st -c popup-terminal -n popup-terminal &amp;); fi'</command>
+        <else> <!-- Otherwise switch to it: this was faster on battery with (a tad) aggressive TLP settings -->
+          <action name="ForEach">
+            <query>
+              <desktop>current</desktop>
+              <class>popup-terminal</class>
+            </query>
+            <then>
+              <action name="Focus"/>
+              <action name="Stop"/>
+            </then>
+          </action>
+          <!-- Create a new terminal, if one didn't already exist -->
+          <action name="Execute">
+            <command>bash -c "xdotool search --class popup-terminal || st -c popup-terminal -n popup-terminal &amp;"</command>
           </action>
         </else>
       </action>
@@ -1460,7 +1471,7 @@ These work off when the window in the specified direction is on another monitor,
     <application name="xterm-256color"> <!-- $TERM, what st uses by default -->
       <decor>no</decor>
       <maximized>yes</maximized>
-8    </application>
+    </application>
     <!-- Placement for terminals -->
     <application name="right"
                  class="terminal-split">
